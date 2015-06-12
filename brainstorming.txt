@@ -7,11 +7,19 @@ Prototyp:
 
 // jp uses all urls 
 $('#cover').jp([
-'cover.jpg',
-'cover_xs.jpg',
-'cover_large.jpg',
-'cover_specialsize.jpg'
+    'cover.jpg',
+    'cover_xs.jpg',
+    'cover_large.jpg',
+    'cover_specialsize.jpg'
 ]);
+
+// problems:
+// - wrong paths
 
 // jp uses predifend postfixes
 $('#cover').jp('cover.jpg');
+
+// problems:
+// - User has not enough postfix pictures
+
+// Postfixes:

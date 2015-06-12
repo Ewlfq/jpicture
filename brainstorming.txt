@@ -6,12 +6,12 @@ dependence
 Prototyp: 
 
 // jp uses all urls 
-$('#cover').jp([
-    'cover.jpg',
-    'cover_xs.jpg',
-    'cover_large.jpg',
-    'cover_specialsize.jpg'
-]);
+$('#cover').jp({
+    'cover.jpg' : 1920,
+    'cover_xs.jpg' : 800,
+    'cover_large.jpg' : 1050,
+    'cover_specialsize.jpg : 133'
+});
 
 // problems:
 // - wrong paths
@@ -23,3 +23,6 @@ $('#cover').jp('cover.jpg');
 // - User has not enough postfix pictures
 
 // Postfixes:
+
+// test function if all img exist?
+$('#cover').jp().test();

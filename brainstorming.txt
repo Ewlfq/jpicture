@@ -5,5 +5,10 @@ dependence
     - bootstrap ?
     
 measurement: px
+xs = Extra small devices (older smartphones)
+sm = Small devices Tablets 
+md = Medium devices Desktops 
+lg = Large devices Desktops 
+
 xs          sm          md          lg
 0 -	749     750 - 969	970 - 1169	1170 - infinite

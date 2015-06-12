@@ -2,15 +2,16 @@ Brainstorming
 
 dependence
     - jquery -> http://jquery.com
-    - bootstrap ?
-    
-measurement: px
-xs = Extra small devices (older smartphones)
-sm = Small devices Tablets 
-md = Medium devices Desktops 
-lg = Large devices Desktops 
 
-xs          sm          md          lg
-0 -	749     750 - 969	970 - 1169	1170 - infinite
+Prototyp: 
 
-event zoom into page?
+// jp uses all urls 
+$('#cover').jp([
+'cover.jpg',
+'cover_xs.jpg',
+'cover_large.jpg',
+'cover_specialsize.jpg'
+]);
+
+// jp uses predifend postfixes
+$('#cover').jp('cover.jpg');

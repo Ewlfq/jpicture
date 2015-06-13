@@ -14,15 +14,9 @@ $('#cover').jp({
 });
 
 // problems:
-// - wrong paths
+// - wrong paths or wrong resolution
 
-// jp uses predifend postfixes
-$('#cover').jp('cover.jpg');
-
-// problems:
-// - User has not enough postfix pictures
-
-// Postfixes:
+load everything throug ajax == lazy load
 
 // test function if all img exist?
 $('#cover').jp().test();

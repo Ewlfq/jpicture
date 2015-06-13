@@ -3,7 +3,7 @@ Brainstorming
 dependence
     - jquery -> http://jquery.com
 
-Prototyp: 
+---------------- Prototyp: ---------------- 
 
 // jp uses all urls 
 $('#cover').jp({
@@ -13,10 +13,23 @@ $('#cover').jp({
     'cover_specialsize.jpg : 133'
 });
 
+<div style="width: 1150px;">
+    <img id="cover" />
+</div>
+
+// jp loads cover_xs.jpg
+// load everything throug ajax == lazy load
+------------------------------------------- 
 // problems:
 // - wrong paths or wrong resolution
 
-load everything throug ajax == lazy load
+---------------- TODO: ----------------
+// load one pic through ID 
+
+// load more pics through CLASS
 
 // test function if all img exist?
+// and if all imgs have the right width
 $('#cover').jp().test();
+
+

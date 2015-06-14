@@ -4,7 +4,12 @@ A jQuery plugin to load pictures on the right view port
 
 Usage
 -----
-TODO
+
+Reference the JavaScript file manually direct after jquery:
+
+```html
+<script src="jpicture.min.js"></script>
+```
 
 Examples
 --------

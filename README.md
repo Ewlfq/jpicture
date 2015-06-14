@@ -1,11 +1,11 @@
 jPicture
 ========
-A jQuery plugin to load pictures on the right view port
+A jQuery plugin to load pictures on the right viewport
 
 Usage
 -----
 
-Reference the JavaScript file manually direct after jquery:
+Reference the JavaScript file manually directly after jQuery:
 
 ```html
 <script src="jpicture.min.js"></script>
@@ -14,7 +14,7 @@ Reference the JavaScript file manually direct after jquery:
 Examples
 --------
 
-Simplest way, pass a object file to the jp function 
+Simplest way, pass an object file to the jp function 
 with all picture paths and width sizes.
 
 ```javascript

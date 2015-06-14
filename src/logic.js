@@ -10,4 +10,5 @@ $( document ).ready(function() {
     $('#second').jp({ 'a' : 160});
     $('#third').jp({ 'a' : 160});
     $('#fourth').jp({ 'a' : 160});
+    $('.pic').jp({ 'a' : 160});
 });

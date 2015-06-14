@@ -15,15 +15,15 @@ Examples
 --------
 
 Simplest way, pass an object file to the jp function 
-with all picture paths and width sizes.
+with all picture paths (you may use whichever file extension you prefer) and width sizes.
 
 ```javascript
 $('#first').jp({
-    'test_imgs/we_80' : 80, 
-    'test_imgs/we_200' : 200, 
-    'test_imgs/we_400' : 400, 
-    'test_imgs/we_500' : 500, 
-    'test_imgs/we_600' : 600, 
+    'test_imgs/we_80.jpg' : 80, 
+    'test_imgs/we_200.jpg' : 200, 
+    'test_imgs/we_400.jpg' : 400, 
+    'test_imgs/we_500.jpg' : 500, 
+    'test_imgs/we_600.jpg' : 600, 
 });
 ```
 

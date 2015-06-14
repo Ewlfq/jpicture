@@ -1,9 +1,9 @@
-# jPicture
----------------
+jPicture
+--------
 A jQuery plugin to load pictures on the right view port
 
-##Authors 
---------------
+Authors 
+-------
 Copyright © 2015
 
 Zoran Milanovic  [@@HayterMiles ](https://twitter.com/HayterMiles) 

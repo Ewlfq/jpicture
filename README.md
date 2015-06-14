@@ -4,7 +4,8 @@ As many of you might have at least once experienced, is that on smaller devices 
 
 Mainly the problem there is that the high-res pictures are loaded anyway and just get scaled down for the low-res viewport.
 
-To avoid that, might sometimes (or even most of the time) be a pain in the ass, and that is exactly what this jQuery plugin was built for.
+To avoid that, might sometimes (or even most of the time) be a pain in the neck, and that is exactly what this jQuery plugin was built 
+for.
 
 To break it down to the essence, jPicture loads only the most fitting picture out of the picture-versions for the viewport the page is
 displayed on. This not only takes away the trouble of handling this yourself, but also reduces loading times for lower-res viewports.

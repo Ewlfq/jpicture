@@ -8,6 +8,6 @@ $( document ).ready(function() {
     console.log('Width test');
     $('#first').jp({ 'a' : 160});
     $('#second').jp({ 'a' : 160});
-    $('#third').jp({ 'a' : 160};
+    $('#third').jp({ 'a' : 160});
     $('#fourth').jp({ 'a' : 160});
 });

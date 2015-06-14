@@ -1,6 +1,7 @@
 jPicture
 ========
-A jQuery plugin to load pictures on the right viewport
+A jQuery plugin to load pictures on the right viewport.
+Reduce your traffic and load your images async.
 
 Usage
 -----

@@ -52,6 +52,8 @@ $('.some-pics').jp({
 });
 ```
 
+Note that there should be a width set for the elements, recommendedly for responsiveness it should be 100%.
+
 Authors 
 -------
 

@@ -4,11 +4,28 @@ A jQuery plugin to load pictures on the right view port
 
 Usage
 -----
-TODO
+
+Reference the JavaScript file manually direct after jquery:
+
+```html
+<script src="jpicture.min.js"></script>
+```
 
 Examples
 --------
-TODO 
+
+Simplest way, pass a object file to the jp function 
+with all picture paths and width sizes.
+
+```javascript
+$('#first').jp({
+    'test_imgs/we_80' : 80, 
+    'test_imgs/we_200' : 200, 
+    'test_imgs/we_400' : 400, 
+    'test_imgs/we_500' : 500, 
+    'test_imgs/we_600' : 600, 
+});
+```
 
 Authors 
 -------

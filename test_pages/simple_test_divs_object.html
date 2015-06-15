@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <title>Test Page for jPicture with divs and css obj</title>
+        
+        <style>
+            #first{
+                width: 775px;
+            }
+            
+            #second{
+                width: 510px;
+            }
+            
+            #third{
+                width: 375px;
+            }
+            
+            #fourth{ 
+                width: 210px;
+            }
+            
+            #fifth{
+                width: 60px;
+            }
+            
+            .pic{}
+            
+            div.row{
+                width: 100%;
+                float: left;
+            }
+            
+            div.container{
+                float: left;
+                margin-right: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Test Page for jPicture with divs and css obj</h1>
+        <div class="row">
+            <div class="container">
+                <h2>775 px</h2>
+                <div id="first" class="pic"></div>
+            </div>
+        
+            <div class="container">
+                <h2>510 px</h2>
+                <div id="second" class="pic"></div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="container">
+                <h2>375 px</h2>
+                <div id="third" class="pic"></div>
+            </div>
+            
+            <div class="container">
+                <h2>210 px</h2>
+                <div id="fourth" class="pic"></div>
+            </div>
+        
+            <div class="container">
+                <h2>60 px</h2>
+                <div id="fifth" class="pic"></div>
+            </div>
+        </div>
+        
+        <script type="text/javascript" charset="utf-8" src="../src/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../src/jpicture.min.js"></script>
+        <script>
+        var picList = {
+            '../test_imgs/we_80.jpg' : 80, 
+            '../test_imgs/we_200.jpg' : 200, 
+            '../test_imgs/we_400.jpg' : 400, 
+            '../test_imgs/we_600.jpg' : 600, 
+            '../test_imgs/we_800.jpg' : 800, 
+        };
+        
+        var css = { 
+            'background-repeat': 'no-repeat',
+            'background-size': 'contain',
+            'opacity' : '0.5'
+        };
+    
+        $('#first').jp(picList, css);
+        $('#second').jp(picList, css);
+        $('#third').jp(picList, css);
+        $('#fourth').jp(picList, css);
+        $('#fifth').jp(picList, css);
+        
+        // $('.pic').jp(picList);
+        </script>
+    </body>
+</html>

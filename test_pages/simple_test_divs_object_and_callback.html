@@ -68,7 +68,7 @@
         </div>
         
         <script type="text/javascript" charset="utf-8" src="../src/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="../src/jpicture.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../src/jpicture-0.1.dev.js"></script>
         <script>
         var picList = {
             '../test_imgs/we_80.jpg' : 80, 
@@ -83,12 +83,12 @@
         };
         
         var fun = function (pic) {
-            alert($(pic).width());
+            console.log($(pic).width());
         };
-    
+        
+        $('#third').jp(picList, css, fun);
         $('#first').jp(picList, css, fun);
         $('#second').jp(picList, css, fun);
-        $('#third').jp(picList, css, fun);
         $('#fourth').jp(picList, css, fun);
         $('#fifth').jp(picList, css, fun);
         

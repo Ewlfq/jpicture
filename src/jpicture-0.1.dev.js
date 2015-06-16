@@ -1,7 +1,7 @@
 (function ($) {
     'use strict';
     
-    // this obj is only used if the user element is not a img
+    // this obj is only used if the user element is not an img
     var  imgCSS = { 
         'background-repeat': 'no-repeat',
         'background-size': 'contain'
@@ -37,9 +37,9 @@
         };
     },
         
-    // This function fetches the image through ajax. In case of an none img
+    // This function fetches the image through ajax. In case of a non-img
     // element it also checks if the height is 0. If it is 0 it resizes the 
-    // none img element to the height of the picture
+    // non-img element to the height of the picture
     fetchImg =  function (elem, url) {  
         var useImg = function (img, url) {
             img.attr('src', url);    
@@ -90,11 +90,11 @@
     
     // Basic plugin structure starts to fetch all class elements or a single 
     // id element and passes them to main. Error gets throw if passed parameter
-    // is not a object.
+    // is not an object.
     //
     // @param picList : object, key is url, val is width
-    // @param p1 : is either a function or a object
-    // @param p2 : function, if p2 is used is has to be a function
+    // @param p1 : is either a function or an object
+    // @param p2 : function, if p2 is used it has to be a function
     $.fn.jp = function (picList, p1, p2) {
         // First optional parameter is a callback
         if(checkType(p1, 'Function')){

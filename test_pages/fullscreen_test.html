@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>Test Page for jPicture with Fullscrees picture</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" type="text/css">
+        <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height:100vh;
+            width:100vw;
+            min-height:100vh;
+            max-height:100vh;
+        }
+        
+        h1, h2 {
+            color: #FFFFFF;
+        }
+        div.col-sm-4#a{     padding:5px;   background: rgba(210, 210, 210, 0.8);    border-radius: 5px;}
+         
+        ul { 
+              list-style-type: none;
+            height: 100%;
+            font-size: 20px;
+            line-height: 200%;
+            width: 40%;
+            padding: 5%;
+        }
+        
+        a {
+            color: #FFFFFF;
+            text-transform: uppercase;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        
+        a:hover {
+            color: #c0392b;
+            text-decoration: none;
+        }
+        
+        ul li a.brand {
+            color: #c0392b;
+        }
+        
+        hr{
+            
+        }
+        
+        footer {
+            color:#FFFFFF;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 40px;
+            width: 100%;
+        }
+        
+        footer span {
+            margin-left: 10px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="text-center">Super Awesome Tree Agency</h1>
+                </div>
+            </div>
+            
+            <div class="row"> 
+                <div class="col-sm-4">
+                    <ul>
+                        <li><a class="brand">SaTa</a></li>
+                        <li><a href="/html/">Home</a></li> 
+                        <li><a href="/css/">Product</a></li> 
+                        <li><a href="/js/">About</a></li>
+                        <li><a href="/jquery/">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-sm-4" style="margin-top: 5%;"  id="a">
+                        <h2>
+                            Our Agency
+                            has 20 years of experince 
+                            in planting trees.
+                        </h2>
+                        <hr />
+
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <span>Our Social Media: </span> 
+                                           <a><i class="fa fa-facebook-official"></i><span>facebook<span></a>
+                                           <a><i class="fa fa-tumblr"></i><span>tumblr<span></a>
+                                           <a><i class="fa fa-pinterest"></i><span>Pinterest<span></a> 
+                                           <a><i class="fa fa-instagram"></i><span>Instagram</span></a>
+        </footer>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../src/jpicture-0.1.3.dev.js"></script>
+        <script>
+        $('body').jp({
+            '../test_imgs/sata_fullscreen_16_10.jpg' : 1680,  
+        });
+        </script>
+    </body>
+</html>

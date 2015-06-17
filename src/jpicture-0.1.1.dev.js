@@ -1,4 +1,5 @@
 // version 0.1.1
+// License: The MIT License (MIT)
 (function ($) {
     'use strict';
     
@@ -82,7 +83,7 @@
 		});
     }, 
     
-    main = function (pic) {
+    main = function (pic, piclist) {
         var elemWidth = $(pic).width(),
             picProperties = findMatchingWidth(picList, elemWidth);
         
@@ -109,8 +110,7 @@
     };
     
     // Basic plugin structure starts to fetch all class elements or a single 
-    // id element and passes them to main. Error gets throw if passed parameter
-    // is not an object.
+    // id element and passes them to main. Error gets throw if passed parameter is not an object.
     //
     // @param picList : object, key is url, val is width
     // @param p1 : is either a function or an object
@@ -120,7 +120,7 @@
         
         if (checkType(picList, 'Object')) {          
             this.each(function() { 
-                main(this); 
+                main(this, picList); 
             });
         } else {
             console.log('Object of type [object Object] expected, object of type ' + Object.prototype.toString.call(picList) + ' given.'); 

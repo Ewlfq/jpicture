@@ -56,9 +56,9 @@
         useDiv = function (container, url) {
             var loadImg = new Image(); // We need this image obj to get the height 
             
-            // this is critical part, the picture is not always the same size as the img TODO:fix
-            // also very important is to check dynamcally heights, like navi pictures,
-            // which get a predefined height of there inside elements example: oliverj.net 
+            // this is a critical part, the picture is not always the same size as the img TODO:fix
+            // it is also very important to check dynamic heights, like navi pictures,
+            // those get a predefined height of their inside elements example: oliverj.net 
             loadImg.onload = function() {
                 imgCSS.backgroundImage = 'url(' + url + ')';
                 imgCSS.width = elemWidth + 'px';
@@ -100,10 +100,10 @@
             picProperties = findMatchingWidth(picList, elemWidth);
         
         fetchImg(pic, picProperties, elemWidth);
-        if(enableZoom){
+        if(imgCSS.enableZoom){
             onZoom();
         }
-        if(orientationChange){
+        if(imgCSS.orientationChange){
             onOrientationChange();
         }
     }, 
@@ -129,7 +129,7 @@
             onZoom();
         }
         // optional parameter for orientationChange
-        if (imgCSSS.orientationChange) {
+        if (imgCSS.orientationChange) {
             onOrientationChange();
         }
     };
@@ -140,8 +140,8 @@
     // @param picList : object, key is url, val is width
     // @param p1 : is either a function or an object
     // @param p2 : function, if p2 is used it has to be a function
-    $.fn.jp = function (picList, p1, p2, p3, p4) {
-        initParameters(p1, p2, p3, p4);
+    $.fn.jp = function (picList, p1, p2) {
+        initParameters(p1, p2);
         
         if (checkType(picList, 'Object')) {          
             this.each(function() { 

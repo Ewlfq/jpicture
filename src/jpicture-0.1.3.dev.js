@@ -104,7 +104,7 @@
         fetchImg(pic, picProperties, elemWidth);
     }, 
     
-    initParameters = function (this, p1, p2) {
+    initParameters = function (pic, p1, p2) {
         // First optional parameter is a callback
         if (checkType(p1, 'Function')) {
             callback = p1; 

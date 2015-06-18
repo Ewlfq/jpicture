@@ -40,15 +40,21 @@
             key: retKey
         };
     },
+    
+    // this calucates the growing or shrink height of the elment 
+    // otherwise it would take height of the picture
+    calcResizingRatio = function (picWidth, containerWidth, height) { 
+        return height * (1 + ((containerWidth - picWidth) / picWidth)); 
+    },
         
     // This function fetches the image through ajax. In case of a non-img
     // element it also checks if the height is 0. If it is 0 it resizes the 
     // non-img element to the height of the picture
     fetchImg =  function (container, imgProp, containerWidth) {  
     	var pictureUrl = imgProp.key,
-    	    pictureWidth = imgProp.width;
+    	    pictureWidth = imgProp.width,
     	
-        var useImg = function (imgTag, url) {
+        useImg = function (imgTag, url) {
             imgTag.attr('src', url);    
         }, 
         
@@ -56,13 +62,14 @@
         useDiv = function (container, url) {
             var loadImg = new Image(); // We need this image obj to get the height 
             
-            // this is a critical part, the picture is not always the same size as the img TODO:fix
+            // this is a critical part, the div picture is not always the same size as the img tag 
+            // picture TODO:fix
             // it is also very important to check dynamic heights, like navi pictures,
             // those get a predefined height of their inside elements example: oliverj.net 
             loadImg.onload = function() {
                 imgCSS.backgroundImage = 'url(' + url + ')';
-                imgCSS.width = containerWidth + 'px';
-                imgCSS.height = loadImg.height;
+                imgCSS.width = '100%';
+                imgCSS.height = calcResizingRatio(loadImg.width, $(container).width(), loadImg.height);
                 container.css(imgCSS);
             }  
             loadImg.src = url;     
@@ -89,12 +96,12 @@
     
     onZoom = function (container) {
         $(window).resize(function () {
-            console.log($(container).width());
-        }); 
+            //console.log($(container).width());
+        });
     },
     
-    onOrientationChange = function () {
-        
+    onOrientationChange = function (container) {
+        // TODO: reimplement orientationChange
     },
     
     main = function (container, picList) {
@@ -104,7 +111,7 @@
         fetchImg(container, picProperties, elemWidth);
     }, 
     
-    initParameters = function (pic, p1, p2) {
+    initParameters = function (container, p1, p2) {
         // First optional parameter is a callback
         if (checkType(p1, 'Function')) {
             callback = p1; 
@@ -120,13 +127,13 @@
         if (checkType(p2, 'Function')) {
             callback = p2; 
         }
-        // optional parameter for enabling/disabling Zoom
+        // optional parameter for enabling/disabling Zoom, default on
         if (imgCSS.enableZoom) {
-            onZoom();
+            onZoom(container);
         }
-        // optional parameter for orientationChange
+        // optional parameter for orientationChange, default on
         if (imgCSS.orientationChange) {
-            onOrientationChange();
+            onOrientationChange(container);
         }
     };
     

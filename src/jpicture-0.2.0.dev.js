@@ -73,7 +73,6 @@
                 loadImg.onload = function() {
                     imgCSS.backgroundImage = 'url(' + url + ')';
                     imgCSS.height = calcResizingRatio(loadImg.width, $(container).width(), loadImg.height);
-                    console.log(' w:' + $(container).width() + ' h: ' + imgCSS.height + ' iw: ' + loadImg.width +  ' iH: ' + loadImg.height);
                     container.css(imgCSS);
                 };
                 loadImg.src = url;     
@@ -148,7 +147,8 @@
                 main(this, picList); 
             });
         } else {
-            console.log('Object of type [object Object] expected, object of type ' + Object.prototype.toString.call(picList) + ' given.'); 
+            console.log('Object of type [object Object] expected, object of type ' + 
+                         Object.prototype.toString.call(picList) + ' given.'); 
         }
         
         return this;

@@ -6,12 +6,12 @@
     // this obj is only used if the user element is not an img
     var  imgCSS = { 
         'background-repeat': 'no-repeat',
-    	'background-size': 'cover'
+    	'background-size': 'cover',
+         enableZoom : true,
+         orientationChange : true
     },
     
     callback = undefined,
-    enableZoom = true,
-    orientationChange = true,
     
     checkType = function (elem, type) {
         if (Object.prototype.toString.call(elem) === '[object ' + type + ']') {
@@ -108,29 +108,29 @@
         }
     }, 
     
-    initParameters = function (p1, p2, p3, p4) {
+    initParameters = function (p1, p2) {
         // First optional parameter is a callback
-        if(checkType(p1, 'Function')){
+        if (checkType(p1, 'Function')) {
             callback = p1; 
         } 
         // First optional parameter is a object
-        if(checkType(p1, 'Object')){
+        if (checkType(p1, 'Object')) {
             imgCSS = $.extend( {}, { // reset the obj because it is in jQuery scope
                 'background-repeat': 'no-repeat',
                 'background-size': 'cover'
             }, p1);
         }   
         // First optional parameter is object and the second one is a callback
-        if(checkType(p2, 'Function')){
+        if (checkType(p2, 'Function')) {
             callback = p2; 
         }
         // optional parameter for enabling/disabling Zoom
-        if(!checkType(p3, 'Undefined')){
-            enableZoom = false;
+        if (imgCSS.enableZoom) {
+            onZoom();
         }
         // optional parameter for orientationChange
-        if(!checkType(p4, 'Undefined'){
-            orientationChange = false;
+        if (imgCSSS.orientationChange) {
+            onOrientationChange();
         }
     };
     

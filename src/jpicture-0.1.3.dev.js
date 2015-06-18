@@ -87,9 +87,9 @@
 		});
     }, 
     
-    onZoom = function () {
+    onZoom = function (pic) {
         $(window).resize(function () {
-            console.log($(window).width());
+            console.log($(this).width());
         }); 
     },
     
@@ -104,7 +104,7 @@
         fetchImg(pic, picProperties, elemWidth);
     }, 
     
-    initParameters = function (p1, p2) {
+    initParameters = function (this, p1, p2) {
         // First optional parameter is a callback
         if (checkType(p1, 'Function')) {
             callback = p1; 
@@ -137,7 +137,7 @@
     // @param p1 : is either a function or an object
     // @param p2 : function, if p2 is used it has to be a function
     $.fn.jp = function (picList, p1, p2) {
-        initParameters(p1, p2);
+        initParameters(this, p1, p2);
         
         if (checkType(picList, 'Object')) {          
             this.each(function() { 

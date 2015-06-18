@@ -10,6 +10,8 @@
     },
     
     callback = undefined,
+    enableZoom = true,
+    orientationChange = true,
     
     checkType = function (elem, type) {
         if (Object.prototype.toString.call(elem) === '[object ' + type + ']') {
@@ -85,14 +87,28 @@
 		});
     }, 
     
+    onZoom = function () {
+        
+    },
+    
+    onOrientationChange = function () {
+        
+    },
+    
     main = function (pic, picList) {
         var elemWidth = $(pic).width(),
             picProperties = findMatchingWidth(picList, elemWidth);
         
         fetchImg(pic, picProperties, elemWidth);
+        if(enableZoom){
+            onZoom();
+        }
+        if(orientationChange){
+            onOrientationChange();
+        }
     }, 
     
-    initParameters = function (p1, p2) {
+    initParameters = function (p1, p2, p3, p4) {
         // First optional parameter is a callback
         if(checkType(p1, 'Function')){
             callback = p1; 
@@ -108,6 +124,14 @@
         if(checkType(p2, 'Function')){
             callback = p2; 
         }  
+        // optional parameter for enabling/disabling Zoom
+        if(p3 !== undefined){
+            enableZoom = false;
+        }
+        // optional parameter for orientationChange
+        if(p4 !== undefined){
+            orientationChange = false;
+        }
     };
     
     // Basic plugin structure starts to fetch all class elements or a single 
@@ -116,7 +140,7 @@
     // @param picList : object, key is url, val is width
     // @param p1 : is either a function or an object
     // @param p2 : function, if p2 is used it has to be a function
-    $.fn.jp = function (picList, p1, p2) {
+    $.fn.jp = function (picList, p1, p2, p3, p4) {
         initParameters(p1, p2);
         
         if (checkType(picList, 'Object')) {          

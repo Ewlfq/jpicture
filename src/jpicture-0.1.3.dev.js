@@ -88,7 +88,9 @@
     }, 
     
     onZoom = function () {
-        
+        $(window).resize(function () {
+            console.log($(window).width());
+        }); 
     },
     
     onOrientationChange = function () {
@@ -100,12 +102,6 @@
             picProperties = findMatchingWidth(picList, elemWidth);
         
         fetchImg(pic, picProperties, elemWidth);
-        if(imgCSS.enableZoom){
-            onZoom();
-        }
-        if(imgCSS.orientationChange){
-            onOrientationChange();
-        }
     }, 
     
     initParameters = function (p1, p2) {

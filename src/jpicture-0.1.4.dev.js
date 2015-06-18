@@ -63,12 +63,10 @@
             var loadImg = new Image(); // We need this image obj to get the height 
             
             // this is a critical part, the div picture is not always the same size as the img tag 
-            // picture TODO:fix
             // it is also very important to check dynamic heights, like navi pictures,
             // those get a predefined height of their inside elements example: oliverj.net 
             loadImg.onload = function() {
                 imgCSS.backgroundImage = 'url(' + url + ')';
-                imgCSS.width = '100%';
                 imgCSS.height = calcResizingRatio(loadImg.width, $(container).width(), loadImg.height);
                 container.css(imgCSS);
             }  

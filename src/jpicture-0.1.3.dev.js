@@ -123,13 +123,13 @@
         // First optional parameter is object and the second one is a callback
         if(checkType(p2, 'Function')){
             callback = p2; 
-        }  
+        }
         // optional parameter for enabling/disabling Zoom
-        if(p3 !== undefined){
+        if(!checkType(p3, 'Undefined')){
             enableZoom = false;
         }
         // optional parameter for orientationChange
-        if(p4 !== undefined){
+        if(!checkType(p4, 'Undefined'){
             orientationChange = false;
         }
     };
@@ -141,7 +141,7 @@
     // @param p1 : is either a function or an object
     // @param p2 : function, if p2 is used it has to be a function
     $.fn.jp = function (picList, p1, p2, p3, p4) {
-        initParameters(p1, p2);
+        initParameters(p1, p2, p3, p4);
         
         if (checkType(picList, 'Object')) {          
             this.each(function() { 

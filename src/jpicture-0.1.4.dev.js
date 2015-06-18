@@ -69,7 +69,7 @@
             loadImg.onload = function() {
                 imgCSS.backgroundImage = 'url(' + url + ')';
                 imgCSS.width = '100%';
-                imgCSS.height = calcResizingRatio(loadImg.width, $(container).width(), $(container).height);
+                imgCSS.height = calcResizingRatio(loadImg.width, $(container).width(), loadImg.height);
                 container.css(imgCSS);
             }  
             loadImg.src = url;     

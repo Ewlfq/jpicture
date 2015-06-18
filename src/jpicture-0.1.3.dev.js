@@ -44,7 +44,7 @@
     // This function fetches the image through ajax. In case of a non-img
     // element it also checks if the height is 0. If it is 0 it resizes the 
     // non-img element to the height of the picture
-    fetchImg =  function (elem, imgProp, elemWidth) {  
+    fetchImg =  function (container, imgProp, containerWidth) {  
     	var pictureUrl = imgProp.key,
     	    pictureWidth = imgProp.width;
     	
@@ -61,7 +61,7 @@
             // those get a predefined height of their inside elements example: oliverj.net 
             loadImg.onload = function() {
                 imgCSS.backgroundImage = 'url(' + url + ')';
-                imgCSS.width = elemWidth + 'px';
+                imgCSS.width = containerWidth + 'px';
                 imgCSS.height = loadImg.height;
                 container.css(imgCSS);
             }  
@@ -73,23 +73,23 @@
           	cache: true,
    	 		processData : false,
 		}).always(function () {
-            if (elem.tagName === 'IMG') {
-                useImg($(elem), pictureUrl);
+            if (container.tagName === 'IMG') {
+                useImg($(container), pictureUrl);
             } else {
-                useDiv($(elem), pictureUrl);    
+                useDiv($(container), pictureUrl);    
             }
             
             // Pass the picture element to the callback function. 
             // Therefore the user can modify the picture through the callback.
             if(callback !== undefined){
-                callback(elem);
+                callback(container);
             }
 		});
     }, 
     
-    onZoom = function (pic) {
+    onZoom = function (container) {
         $(window).resize(function () {
-            console.log($(this).width());
+            console.log($(container).width());
         }); 
     },
     
@@ -97,11 +97,11 @@
         
     },
     
-    main = function (pic, picList) {
-        var elemWidth = $(pic).width(),
+    main = function (container, picList) {
+        var elemWidth = $(container).width(),
             picProperties = findMatchingWidth(picList, elemWidth);
         
-        fetchImg(pic, picProperties, elemWidth);
+        fetchImg(container, picProperties, elemWidth);
     }, 
     
     initParameters = function (pic, p1, p2) {

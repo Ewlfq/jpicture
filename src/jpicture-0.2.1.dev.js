@@ -99,7 +99,7 @@
             });
         },
     
-        onOrientationChange = function (container) {
+        onOrientationChange = function (container, picList) {
             // TODO: reimplement orientationChange
         },
     

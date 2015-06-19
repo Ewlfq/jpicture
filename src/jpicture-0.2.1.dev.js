@@ -7,16 +7,15 @@
     // @param p1 : is either a function or an object
     // @param p2 : function, if p2 is used it has to be a function  
     $.fn.jp = function (picList, p1, p2) {
+    // Basic plugin structure starts to fetch all class elements or a single id element and 
+    // passes them to main. Error gets throw if passed parameter is not an object.       
+    return this.each(function () {
+                
+        // this obj stores all css properties
+        var containerCSS = null,
         
-        // this obj is only used if the user element is not an img
-        var  imgCSS = { 
-            'background-repeat': 'no-repeat',
-        	'background-size': 'cover',
-             enableZoom : true,
-             orientationChange : true
-        },
-    
-        callback = undefined,
+        // this obj stores all properties
+        containerProp = null,
     
         checkType = function (elem, type) {
             if (Object.prototype.toString.call(elem) === '[object ' + type + ']') {
@@ -52,14 +51,23 @@
             return height * (1 + ((containerWidth - picWidth) / picWidth)); 
         },
         
+        // a little animation to, make the loading smoother
+        animatePicutreLoad = function (container, fun) {
+            $(container).fadeOut('middle', function () {
+                fun();
+                $(container).fadeIn('middle');
+            });
+        },
+        
         // This function fetches the image through ajax. In case of a non-img
         // element it also checks if the height is 0. If it is 0 it resizes the 
         // non-img element to the height of the picture
         fetchImg =  function (container, imgProp, containerWidth) {  
             var useImg = function (imgTag, url) {
-                imgTag.attr('src', url);    
+                animatePicutreLoad(imgTag, function () {
+                   imgTag.attr('src', url);  
+                });
             }, 
-        
             // container is the non-img tag
             useDiv = function (container, url) {
                 var loadImg = new Image(); // We need this image obj to get the height 
@@ -68,13 +76,16 @@
                 // it is also very important to check dynamic heights, like navi pictures,
                 // those get a predefined height of their inside elements example: oliverj.net 
                 loadImg.onload = function() {
-                    imgCSS.backgroundImage = 'url(' + url + ')';
-                    imgCSS.height = calcResizingRatio(loadImg.width, $(container).width(), loadImg.height);
-                    container.css(imgCSS);
+                    containerCSS.backgroundImage = 'url(' + url + ')';
+                    containerCSS.height = calcResizingRatio(loadImg.width, $(container).width(), loadImg.height);
+                    
+                    animatePicutreLoad(container, function () {
+                        container.css(containerCSS);
+                    });
                 };
                 loadImg.src = url;     
             };
-        
+            
             $.ajax({
                 url: window.location.href,
               	cache: true,
@@ -84,12 +95,15 @@
                     useImg($(container), imgProp.key);
                 } else {
                     useDiv($(container), imgProp.key);    
-                }
+                } 
                 // Pass the picture element to the callback function. 
                 // Therefore the user can modify the picture through the callback.
-                if(callback !== undefined){
-                    callback(container);
+                if(containerProp.callback){
+                    containerProp.callback(container);
                 }
+                // Store last picture url, so we do not have to reload
+                // the same picture while resizing
+                container.lastPicture = imgProp.key;
     		});
         }, 
     
@@ -104,51 +118,56 @@
         },
     
         main = function (container, picList) {
-            var containerWidth = $(container).width();
-        
-            fetchImg(container, findMatchingWidth(picList, containerWidth), containerWidth);
+            var containerWidth = $(container).width(),
+                imgObj = findMatchingWidth(picList, containerWidth);
+            
+                // TODO: fix
+            if (true) {
+                fetchImg(container, imgObj, containerWidth);   
+            }
         }, 
     
         initParameters = function (container, picList, p1, p2) {
+            containerProp = {
+                enableZoom : true,
+                orientationChange : true,
+                lastPicture : undefined,
+                callback : null
+            };
+            
+            containerCSS = { 
+                'background-repeat': 'no-repeat',
+            	'background-size': 'cover',
+                'heigh': 0
+            };
+            
             // First optional parameter is a callback
             if (checkType(p1, 'Function')) {
-                callback = p1; 
+                containerProp.callback = p1; 
             } 
             // First optional parameter is a object
             if (checkType(p1, 'Object')) {
-                imgCSS = $.extend( {}, { // reset the obj because it is in the jQuery scope
-                    'background-repeat': 'no-repeat',
-                    'background-size': 'cover',
-                    enableZoom : true,
-                    orientationChange : true
-                }, p1);
+                containerProp = $.extend( {}, containerCSS, p1);
             
                 // First optional parameter is object and the second one is a callback
                 if (checkType(p2, 'Function')) {
-                    callback = p2; 
+                    containerProp.callback = p2; 
                 }
             }   
             // optional parameter for enabling/disabling Zoom, default on
-            if (imgCSS.enableZoom) {
+            if (containerProp.enableZoom) {
                 onZoom(container, picList);
             }
             // optional parameter for orientationChange, default on
-            if (imgCSS.orientationChange) {
+            if (containerProp.orientationChange) {
                 onOrientationChange(container, picList);
             }
         };
-        
-        if (checkType(picList, 'Object')) { 
-            // Basic plugin structure starts to fetch all class elements or a single id element and 
-            // passes them to main. Error gets throw if passed parameter is not an object.       
-            return this.each(function () {
-                initParameters(this, picList, p1, p2);
-                main(this, picList); 
                 
-                return this;
-            });
-        } else {
-            console.log('Object of type [object Object] expected, object of type ' +  Object.prototype.toString.call(picList) + ' given.'); 
-        }
-    };
+        initParameters(this, picList, p1, p2);
+        main(this, picList); 
+        
+        return this;
+    });
+};
 }(jQuery));

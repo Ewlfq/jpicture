@@ -11,10 +11,18 @@
     return this.each(function () {
                 
         // this obj stores all css properties
-        var containerCSS = null,
+        var containerCSS = { 
+            'background-repeat': 'no-repeat',
+            'background-size': 'cover'
+        },
         
         // this obj stores all properties
-        containerProp = null,
+        containerProp = {
+            enableZoom : true,
+            orientationChange : true,
+            lastPicture : undefined,
+            callback : null
+        },
     
         checkType = function (elem, type) {
             if (Object.prototype.toString.call(elem) === '[object ' + type + ']') {
@@ -126,20 +134,7 @@
             }
         }, 
     
-        initParameters = function (container, picList, p1, p2) {
-            containerProp = {
-                enableZoom : true,
-                orientationChange : true,
-                lastPicture : undefined,
-                callback : null
-            };
-            
-            containerCSS = { 
-                'background-repeat': 'no-repeat',
-            	'background-size': 'cover',
-                'heigh': 0
-            };
-            
+        initParameters = function (container, picList, p1, p2) {            
             // First optional parameter is a callback
             if (checkType(p1, 'Function')) {
                 containerProp.callback = p1; 

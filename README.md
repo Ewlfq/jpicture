@@ -10,8 +10,6 @@ for.
 To break it down to the essence, jPicture loads only the most fitting picture out of the picture-versions for the viewport the page is
 displayed on. This not only takes away the trouble of handling this yourself, but also reduces loading times for lower-res viewports.
 
-For further informations visit [jpicture.net](http://jpicture.net).
-
 Usage
 -----
 
@@ -62,6 +60,10 @@ $('.some-pics').jp({
 ```
 
 Note that there should be a width set for the elements, recommendedly for responsiveness it should be 100%.
+
+Documentation
+---
+For a full documentation visit [Documentation page of jPicture.net](http://jpicture.net/documentation/).
 
 Authors 
 -------

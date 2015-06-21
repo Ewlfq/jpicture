@@ -68,6 +68,8 @@ Authors
 
 Zoran Milanovic  [@HayterMiles ](https://twitter.com/HayterMiles) 
 
-Oliver Jessner [Website](http://oliverj.net), [@oliverj_net](https://twitter.com/oliverj_net) 
+Oliver Jessner [@oliverj_net](https://twitter.com/oliverj_net), [Website](http://oliverj.net) 
+
+Send us an email at: help@jpicture.net
 
 Copyright © 2015

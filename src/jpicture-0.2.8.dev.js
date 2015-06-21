@@ -56,7 +56,7 @@
             };
         },
     
-        // this calucates the growing or shrink height of the elment 
+        // this calucates the growing or shrink height of the element 
         // otherwise it would take height of the picture
         calcResizingRatio = function (picWidth, containerWidth, height) { 
             return height * (1 + ((containerWidth - picWidth) / picWidth)); 
@@ -114,7 +114,7 @@
                 } else {
                     useDiv($(container), imgProp.key);    
                 } 
-                // Pass the picture element to the callback function. 
+                // Pass the container object to the callback function. 
                 // Therefore the user can modify the picture through the callback.
                 if(containerProp.callback){
                     containerProp.callback(container);
@@ -135,7 +135,9 @@
                 default: setPicture(container, picList); break; 
             }
         },
-    
+        
+        // gets called at the bottom of the plugin
+        // and everytime the user resizes or changes the orientation
         setPicture = function (container, picList) {
             var containerWidth = $(container).width(),
                 imgObj = findMatchingWidth(picList, containerWidth);

@@ -1,0 +1,39 @@
+{
+  "name": "jpicture",
+  "title": "jQuery plugin for responsive pictures",
+  "description": "A jQuery plugin to load pictures on the right view port.",
+  "keywords": [
+    "jquery",
+    "jpicture",
+    "pictures",
+    "responsive",
+    "jquery-plugin",
+    "ecosystem:jquery"
+  ],
+  "version": "0.2.8",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oliver-j/jpicture"
+  },
+  "author": {
+    "name": "oliver jessner",
+    "email": "oliver.jessner@gmail.com",
+    "url": "http://oliverj.net"
+  },
+  "homepage": "http://jpicture.net",
+  "demo": "http://jpicture.net/showcase/",
+  "docs": "http://jpicture.net/documentation/",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    },
+    {
+      "type": "GPLv3",
+      "url": "http://www.gnu.org/licenses/gpl.html"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">=1.5"
+  }
+}

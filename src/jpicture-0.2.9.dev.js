@@ -1,5 +1,3 @@
-// version 0.2.9
-// License: The MIT License (MIT)
 (function ($, win) {
     'use strict';
 

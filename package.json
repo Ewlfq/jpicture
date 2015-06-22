@@ -10,7 +10,7 @@
     "jquery-plugin",
     "ecosystem:jquery"
   ],
-  "version": "0.2.8",
+  "version": "0.2.9",
   "repository": {
     "type": "git",
     "url": "https://github.com/oliver-j/jpicture"
@@ -23,16 +23,7 @@
   "homepage": "http://jpicture.net",
   "demo": "http://jpicture.net/showcase/",
   "docs": "http://jpicture.net/documentation/",
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://opensource.org/licenses/MIT"
-    },
-    {
-      "type": "GPLv3",
-      "url": "http://www.gnu.org/licenses/gpl.html"
-    }
-  ],
+  "license":  "MIT",
   "dependencies": {
     "jquery": ">=1.5"
   }

@@ -57,7 +57,7 @@
         },
     
         // this calucates the growing or shrink height of the element 
-        // otherwise it would take height of the picture
+        // otherwise it would take height of the picture.
         calcResizingRatio = function (picWidth, containerWidth, height) { 
             return height * (1 + ((containerWidth - picWidth) / picWidth)); 
         },
@@ -72,7 +72,7 @@
         
         // This function fetches the image through ajax. In case of a non-img
         // element it also checks if the height is 0. If it is 0 it resizes the 
-        // non-img element to the height of the picture
+        // non-img element to the height of the picture.
         fetchImg =  function (container, imgProp, containerWidth) {  
             var useImg = function (imgTag, url) {
                 animatePicutreLoad(imgTag, function () {
@@ -80,12 +80,12 @@
                    cacheWandH($(imgTag).width(), $(imgTag).height());
                 });
             }, 
-            // container is the non-img tag
+            // container is the non-img tag.
             useDiv = function (container, url) {
                 var loadImg = new Image(); // We need this image obj to get the height 
  
                 // it is also very important to check dynamic heights, like navi pictures,
-                // those get a predefined height of their inside elements example: oliverj.net 
+                // those get a predefined height of their inside elements example: oliverj.net.
                 loadImg.onload = function() {
                     var w = $(container).width();
                     containerCSS.backgroundImage = 'url(' + url + ')';
@@ -128,7 +128,7 @@
             });
         },
         
-        // simlest solution for OrientationChange
+        // simlest solution for OrientationChange.
         onOrientationChange = function (container, picList) {
             switch (win.orientation) {  
                 case -90: case 90: setPicture(container, picList); break; 
@@ -137,12 +137,12 @@
         },
         
         // gets called at the bottom of the plugin
-        // and everytime the user resizes or changes the orientation
+        // and everytime the user resizes or changes the orientation.
         setPicture = function (container, picList) {
             var containerWidth = $(container).width(),
                 imgObj = findMatchingWidth(picList, containerWidth);
            
-           // only refetches the img if the width shrinks or grows
+           // only refetches the img if the width shrinks or grows.
            if(containerProp.lastPicture.width !== containerWidth){
                fetchImg(container, imgObj, containerWidth);     
            } 
@@ -172,8 +172,8 @@
                 win.addEventListener('orientationchange', onOrientationChange(container, picList));
             }
             
-            delete containerCSS.enableZoom;
-            delete containerCSS.orientationChange;
+            delete containerCSS.enableZoom; // not very happy about this
+            delete containerCSS.orientationChange; // not very happy about this
         };
         
         // Plugin starts here

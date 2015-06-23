@@ -123,7 +123,7 @@
                     case -90: case 90: setPicture(container, picList); break; 
                     default: setPicture(container, picList); break; 
                 } 
-            }
+            });
         },
         
         isNotSameWidth = function (containerWidth) {

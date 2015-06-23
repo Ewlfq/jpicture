@@ -1,4 +1,4 @@
-jPicture
+#jPicture
 ========
 As many of you might have at least once experienced, is that on smaller devices with slow connection pictures seem to load forever.
 
@@ -10,7 +10,7 @@ for.
 To break it down to the essence, jPicture loads only the most fitting picture out of the picture-versions for the viewport the page is
 displayed on. This not only takes away the trouble of handling this yourself, but also reduces loading times for lower-res viewports.
 
-Usage
+##Usage
 -----
 
 Reference the JavaScript file manually directly after jQuery:
@@ -19,53 +19,201 @@ Reference the JavaScript file manually directly after jQuery:
 <script src="jpicture.min.js"></script>
 ```
 
-Examples
---------
-
-First you need some html element you want to use jPicture on. 
-Here we make no difference if you either use an img-tag or any other tag
-
-This is a simple example how to use jPicture with an id
-
-```html
-    <img id="super-pic">
-```
-
-```javascript
-$('#super-pic').jp({
-    'test_imgs/we_80.jpg' : 80, 
-    'test_imgs/we_200.jpg' : 200, 
-    'test_imgs/we_400.jpg' : 400, 
-    'test_imgs/we_500.jpg' : 500, 
-    'test_imgs/we_600.jpg' : 600, 
-});
-```
-
-but you can also use jPicture with classes as easy as this
-
-```html
-    <img class="some-pics" id="some-other-pic1">
-    <img class="some-pics" id="some-other-pic2">
-    <img class="some-pics" id="some-other-Pic3">
-```
-
-```javascript
-$('.some-pics').jp({
-    'test_imgs/we_80.jpg' : 80, 
-    'test_imgs/we_200.jpg' : 200, 
-    'test_imgs/we_400.jpg' : 400, 
-    'test_imgs/we_500.jpg' : 500, 
-    'test_imgs/we_600.jpg' : 600, 
-});
-```
-
-Note that there should be a width set for the elements, recommendedly for responsiveness it should be 100%.
-
-Documentation
+##Documentation
 ---
-For a full documentation visit [Documentation page of jPicture.net](http://jpicture.net/documentation/).
+For a beautiful version of the documentation visit [Documentation page of jPicture.net](http://jpicture.net/documentation/).
 
-Authors 
+###The easiest way to use jPicture is, with an ID on an IMG-tag. This works as follows:
+
+```javascript
+$('#my-fancy-pic').jp({
+    'test_imgs/mySuperFancyPic_80.jpg' : 80, 
+    'test_imgs/mySuperFancyPic_200.jpg' : 200, 
+    'test_imgs/mySuperFancyPic_400.jpg' : 400, 
+    'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+    'test_imgs/mySuperFancyPic_600.jpg' : 600
+});
+```
+This is an object, which you give jPicture as parameter where the key is the path to the picture and the value is the width of that picture. (Of course the picture should have the corresponding width.) With that given jPicture can determine which picture it should use for the best visualisation on the resolution the site is being viewed on.
+
+###You can use jPicture on classes too
+
+If you are using the same picture more frequently on the same page, you might want to use a class for that. But what if you want to use jPicture too? Well, that is no problem after all, everything you need to change is instead of selecting an ID you now	need to select a class. This works as follows:
+
+```javascript
+$('.some-fancy-pics').jp({
+    'test_imgs/mySuperFancyPic_80.jpg' : 80, 
+    'test_imgs/mySuperFancyPic_200.jpg' : 200, 
+    'test_imgs/mySuperFancyPic_400.jpg' : 400, 
+    'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+    'test_imgs/mySuperFancyPic_600.jpg' : 600
+});
+```
+
+###You need to use non-IMG-tags – no problem
+
+Sometimes an IMG-tag just isn't enough, but even that is no problem for jPicture after all. You can simply use it just the way you already did. The only difference is that the tag with corresponding ID or class is not an IMG-tag but an whatever- you-want-tag (for example a DIV-tag in a header).
+
+###Your picture just won't look good on lower resolutions?
+
+No problem, you can simply tell jPicture to not show the picture at all if the solution is too small, for example if your banner would just waste space on a low-res device, you can simply do as follows:
+
+```javascript
+$('.some-fancy-pics').jp({
+    'test_imgs/mySuperFancyPic_400.jpg' : 400, 
+    'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+    'test_imgs/mySuperFancyPic_600.jpg' : 600,
+    'hidden' : 200
+});
+```
+Now if the best fitting version would be for the picture version of 200 pixels, then it will be hidden by setting the display property of CSS to none.
+
+###You can even set CSS-properties
+
+To do so, you can give jPicture a second object as parameter, after the object containing the pictures. The second object should contain the CSS-properties you want to set. For example, if you want to set the opacity to 0.5 you would need to do as follows:
+
+```javascript
+$('.some-fancy-pics').jp({
+    'test_imgs/mySuperFancyPic_80.jpg' : 80, 
+    'test_imgs/mySuperFancyPic_200.jpg' : 200, 
+    'test_imgs/mySuperFancyPic_400.jpg' : 400, 
+    'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+    'test_imgs/mySuperFancyPic_600.jpg' : 600
+}, { 
+    'opacity' : '0.7',
+    'border-color' : '#C1E0FF', 
+    'border-width' : '5px', 
+    'border-style' : 'solid'
+});
+```
+
+###Need callbacks?
+
+If you need a callback-function, then you can also give a callback to jPicture as a parameter. For example you want to print to the console when picture was loaded, that would look like follows:
+
+```javascript
+$('.some-fancy-pics').jp({
+    'test_imgs/mySuperFancyPic_80.jpg' : 80, 
+    'test_imgs/mySuperFancyPic_200.jpg' : 200, 
+    'test_imgs/mySuperFancyPic_400.jpg' : 400, 
+    'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+    'test_imgs/mySuperFancyPic_600.jpg' : 600
+}, function () {
+	console.log("Picture was loaded.");
+});
+```
+Now each time the picture finished loading, "Picture was loaded." will be printed in the console.
+
+###Further modification
+
+What if you need to do something with the picture after you loaded it? Well, just easily hand it over as parameter in the callback-function. In the following example the width of the picture will be logged in the console.
+
+```javascript
+$('.some-fancy-pics').jp({
+    'test_imgs/mySuperFancyPic_80.jpg' : 80, 
+    'test_imgs/mySuperFancyPic_200.jpg' : 200, 
+    'test_imgs/mySuperFancyPic_400.jpg' : 400, 
+    'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+    'test_imgs/mySuperFancyPic_600.jpg' : 600
+}, function (pic) {
+	var pWidth = $(pic).width();
+	console.log("The width of the picture is " + pWidth + "pixels.");
+});
+```
+
+###CSS and callbacks
+
+You need to change some of the CSS-properties and want to modify the picture with another function too? Nothing simpler than that with jPicture. You can do both simultaneously in one call of jPicture. For the following example the picture will be set to an opacity of 0.5 and then the width will be logged to the console as well as the opacity.
+
+```javascript
+$('.some-fancy-pics').jp({
+    'test_imgs/mySuperFancyPic_80.jpg' : 80, 
+    'test_imgs/mySuperFancyPic_200.jpg' : 200, 
+    'test_imgs/mySuperFancyPic_400.jpg' : 400, 
+    'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+    'test_imgs/mySuperFancyPic_600.jpg' : 600
+}, { 
+    'opacity' : '0.7',
+    'border-color' : '#C1E0FF', 
+    'border-width' : '5px', 
+    'border-style' : 'solid'
+}, function (pic) {
+	var pWidth = $(pic).width();
+	console.log("The picture has a width of " + pWidth + " pixels.");
+});
+```
+Note that in case you need both, the CSS-properties always go first and after that the function is passed!
+
+###Disable Zoom or Change OrientationChange
+
+jPicture comes with an automatic Zoom and OrientationChange Event. If you want do disable this events just set enableZoom or orientationChange to false.
+
+```javascript
+$('.some-fancy-pics').jp({
+    'test_imgs/mySuperFancyPic_80.jpg' : 80, 
+    'test_imgs/mySuperFancyPic_200.jpg' : 200, 
+    'test_imgs/mySuperFancyPic_400.jpg' : 400, 
+    'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+    'test_imgs/mySuperFancyPic_600.jpg' : 600
+}, { 
+	enableZoom : false,
+    orientationChange : false
+});
+```
+
+###CSS, Callback and Chaining
+
+You can chain every jquery method to the end of the jpicture function.
+
+```javascript
+$('.some-fancy-pics').jp({
+    'test_imgs/mySuperFancyPic_80.jpg' : 80, 
+    'test_imgs/mySuperFancyPic_200.jpg' : 200, 
+    'test_imgs/mySuperFancyPic_400.jpg' : 400, 
+    'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+    'test_imgs/mySuperFancyPic_600.jpg' : 600
+}, { 
+    'border-color' : '#C1E0FF', 
+    'border-width' : '5px', 
+    'border-style' : 'solid'
+}, function (pic) {
+	var pWidth = $(pic).width();
+	console.log("The picture has a width of " + pWidth + " pixels.");
+}).mouseenter(function () {
+    $(this).css({'opacity' : '0.5'});
+}).mouseleave(function () {
+    $(this).css({'opacity' : '1'});            
+});
+```
+
+####Literals and Variables
+
+Just in case, you didnt know. Instead of Literals we could use variables.
+
+```javascript
+var picList = {
+    'test_imgs/mySuperFancyPic_80.jpg' : 80, 
+    'test_imgs/mySuperFancyPic_200.jpg' : 200, 
+    'test_imgs/mySuperFancyPic_400.jpg' : 400, 
+    'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+    'test_imgs/mySuperFancyPic_600.jpg' : 600
+};
+
+var cssProperties = { 
+    'border-color' : '#C1E0FF', 
+    'border-width' : '5px', 
+    'border-style' : 'solid'
+};
+
+var callback = function (pic) {
+	var pWidth = $(pic).width();
+	console.log("The picture has a width of " + pWidth + " pixels.");
+};
+
+$('.some-fancy-pics').jp(picList, cssProperties, callback);
+```
+
+##Authors 
 -------
 
 Zoran Milanovic  [@HayterMiles ](https://twitter.com/HayterMiles) 

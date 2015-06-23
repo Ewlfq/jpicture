@@ -181,6 +181,7 @@
         
         // Plugin starts here.
         initParameters(this, picList, p1, p2);
+        setPicture(this, container);
         
         return this;
     });

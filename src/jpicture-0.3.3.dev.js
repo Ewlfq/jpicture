@@ -13,7 +13,7 @@
         var containerCSS = { 
             'background-repeat' : 'no-repeat',
             'background-size' : 'cover',
-            'display': 'inline',
+            'display' : 'block', /* omfg I am scared */
             enableZoom : true,
             orientationChange : true
         },
@@ -68,7 +68,7 @@
         fetchImg =  function (container, imgProp, containerWidth) {  
             var useImg = function (imgTag, url) {
             	imgTag.attr('src', url);  
-            	imgTag.css('display', 'inline'); 
+            	imgTag.css('display', 'block'); 
                 cacheWandH($(imgTag).width(), $(imgTag).height());
             }, 
             // container is the non-img tag.

@@ -213,6 +213,28 @@ var callback = function (pic) {
 $('.some-fancy-pics').jp(picList, cssProperties, callback);
 ```
 
+##Known Issues
+---
+
+###A smaller picture is chosen
+
+As far as we know this only appears on Firefox and only with a screen width of 1920 or more pixels, but only with IMG- elements. If all of that comes together in Firefox, then the IMG-element will be sized with a wrong width which causes jPicture to load a smaller version of the picture unregarding the actual resolution or element width. Of course this doesn't look quite good on higher resolutions, but as soon as a resize or an orientation change takes place the correct version will be loaded.
+
+###Things we tried
+
+```javascript
+document.getElementById('banner').offsetWidth;
+document.getElementById('banner').innerWidth;
+document.getElementById('banner').clientWidth;
+$('#banner').width();
+$('#banner').css('width');
+$('#banner').outerWidth();
+```
+
+###Workaround
+
+The only way we know, to not have that issue is to use other elements than IMG for example a DIV-element should get the job done as expected. As already mention this only counts for FireFox.
+
 ##Authors 
 -------
 

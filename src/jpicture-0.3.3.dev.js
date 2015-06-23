@@ -55,6 +55,11 @@
                 key: retKey
             };
         },
+        
+        cacheWandH = function (w, h) {
+            containerProp.lastPicture.width = w;
+            containerProp.lastPicture.height = h;
+        },
     
         // this calucates the growing or shrink height of the element.
         // otherwise it would take height of the picture.
@@ -85,12 +90,7 @@
                     cacheWandH(w, containerCSS.height);
                 };
                 loadImg.src = url;     
-            }, 
-            
-            cacheWandH = function (w, h) {
-                containerProp.lastPicture.width = w;
-                containerProp.lastPicture.height = h;
-            }
+            };
             
             $.ajax({
                 url: win.location.href,
@@ -118,9 +118,11 @@
         
         // simlest solution for OrientationChange.
         onOrientationChange = function (container, picList) {
-            switch (win.orientation) {  
-                case -90: case 90: setPicture(container, picList); break; 
-                default: setPicture(container, picList); break; 
+            win.addEventListener('orientationchange', function () {
+                switch (win.orientation) {  
+                    case -90: case 90: setPicture(container, picList); break; 
+                    default: setPicture(container, picList); break; 
+                } 
             }
         },
         
@@ -138,6 +140,7 @@
            if (isNotSameWidth(containerWidth)) {
                if (imgObj.key === 'hidden') {
                   $(container).css('display', 'none');   
+                  cacheWandH(0, 0);
                } else {
                	  fetchImg(container, imgObj, containerWidth);
                }
@@ -167,7 +170,7 @@
             }
             // optional parameter for orientationChange, default on.
             if (containerCSS.orientationChange) {
-                win.addEventListener('orientationchange', onOrientationChange(container, picList));
+                onOrientationChange(container, picList);
             } else {
             	setPicture(this, picList); 
             }

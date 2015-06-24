@@ -1,0 +1,25 @@
+{
+  "name": "jpicture",
+  "version": "0.3.3",
+  "homepage": "http://jpicture.net",
+  "authors": [
+    { "name" : "oliver jessner", "email": "oliver.jessner@gmail.com", "homepage": "http://oliverj.net"},
+    { "name" : "zoran milanovic", "email": "milo@reflex.at" }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oliver-j/jPicture"
+  },
+  "description": "A jQuery plugin to load pictures on the right view port",
+  "main": "jpicture-0.3.3.min.js",
+  "dependencies": {
+      "jquery": "~1.10.2"
+  },
+  "keywords": [
+    "jquery",
+    "plugin",
+    "repsonsive",
+    "image"
+  ],
+  "license": "MIT"
+}

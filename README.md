@@ -68,10 +68,10 @@ No problem, you can simply tell jPicture to not show the picture at all if the s
 
 ```javascript
 $('.some-fancy-pics').jp({
+    'hidden' : 200,
     'test_imgs/mySuperFancyPic_400.jpg' : 400, 
     'test_imgs/mySuperFancyPic_500.jpg' : 500, 
-    'test_imgs/mySuperFancyPic_600.jpg' : 600,
-    'hidden' : 200
+    'test_imgs/mySuperFancyPic_600.jpg' : 600
 });
 ```
 Now if the best fitting version would be for the picture version of 200 pixels, then it will be hidden by setting the display property of CSS to none.

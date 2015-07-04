@@ -1,6 +1,6 @@
 {
   "name": "jpicture",
-  "version": "0.3.3",
+  "version": "0.3.5",
   "homepage": "http://jpicture.net",
   "authors": [
     { "name" : "oliver jessner", "email": "oliver.jessner@gmail.com", "homepage": "http://oliverj.net"},
@@ -11,7 +11,7 @@
     "url": "https://github.com/oliver-j/jPicture"
   },
   "description": "A jQuery plugin to load pictures on the right view port",
-  "main": "jpicture-0.3.3.min.js",
+  "main": "jpicture-0.3.5.min.js",
   "dependencies": {
       "jquery": "~1.10.2"
   },

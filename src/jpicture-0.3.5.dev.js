@@ -1,4 +1,4 @@
-// version: 0.3.3
+// version: 0.3.5
 (function ($, win) {
     'use strict';
 
@@ -22,6 +22,7 @@
         containerProp = {
             callback : null,
             animationSpeed: 'fast',
+            checkForHtml: true,
             lastPicture : {
                 height : 0, // at the moment not needed.
                 width : 0
@@ -111,7 +112,7 @@
         }, 
     
         onZoom = function (container, picList) {
-            $(win).resize(function () {
+            win.addEventListener('resize', function () {
                 setPicture(container, picList);
             });
         },
@@ -126,8 +127,23 @@
             });
         },
         
+        clearPicture = function (container) {
+            $(container).css({
+                'background-image': 'none',
+                'height': 'auto'
+            });
+        }, 
+        
         isNotSameWidth = function (containerWidth) {
             return containerProp.lastPicture.width !== containerWidth;    
+        },
+        
+        hasWhiteSpace = function (str) {
+            return /\s/g.test(str);
+        },
+        
+        hasLT = function (str) {
+            return !str.indexOf('&lt;') === -1
         },
         
         // gets called at the bottom of the plugin
@@ -135,14 +151,20 @@
         setPicture = function (container, picList) {
             var containerWidth = $(container).width(),
                 imgObj = findMatchingWidth(picList, containerWidth);
-       
+                
            // only refetches the img if the width shrinks or grows.
            if (isNotSameWidth(containerWidth)) {
+               // User wants to hide everything
                if (imgObj.key === 'hidden') {
                   $(container).css('display', 'none');   
                   cacheWandH(0, 0);
+               // User wants to display some html
+               } else if ((hasWhiteSpace(imgObj.key) || hasLT(imgObj.key)) && containerProp.checkForHtml) { 
+                   $(container).html(imgObj.key);
+                   clearPicture(container);
                } else {
                	  fetchImg(container, imgObj, containerWidth);
+                  $(container).html('');
                }
            } 
         }, 
@@ -181,7 +203,7 @@
         
         // Plugin starts here.
         initParameters(this, picList, p1, p2);
-        setPicture(this, picList);
+        setPicture(this, picList);     
         
         return this;
     });

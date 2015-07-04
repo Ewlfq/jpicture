@@ -194,6 +194,34 @@ $('.some-fancy-pics').jp({
 });
 ```
 
+###Inject HTML instead of pictures
+
+Sometimes it is better display text instead of pictures.
+Attention jPicture only recognizes html tags or text with at least one whitespace as 
+none picture elements.
+		
+```javascript
+$('#some-fancy-pic').jp({
+    '<span>Too Small for a pic</span>;' : 80, 
+    'test_imgs/mySuperFancyPic_200.jpg' : 200, 
+    'test_imgs/mySuperFancyPic_400.jpg' : 400, 
+    'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+    'test_imgs/mySuperFancyPic_600.jpg' : 600
+});
+```
+
+You are not forced to use picture at all.
+		
+```javascript
+$('#headline-section').jp({
+    '<h5>About us</h5>' : 60, 
+    '<h4>About us</h4>' : 100, 
+    '<h3>About us</h3>' : 140, 
+    '<h2>About us</h2>' : 180, 
+    '<h1>About us</h1>' : 220
+});
+```
+
 ####Literals and Variables
 
 Just in case, you didnt know. Instead of Literals we could use variables.

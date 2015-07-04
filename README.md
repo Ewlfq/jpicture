@@ -50,6 +50,14 @@ $('.some-fancy-pics').jp({
 });
 ```
 
+If you care about users without javascript enabled, you can include the original image inside a <noscript>; tag:
+
+```html
+<noscript>
+  <img src="test_imgs/mySuperFancyPic_600.jpg" />
+</noscript>
+```
+
 ###You need to use non-IMG-tags – no problem
 
 Sometimes an IMG-tag just isn't enough, but even that is no problem for jPicture after all. You can simply use it just the way you already did. The only difference is that the tag with corresponding ID or class is not an IMG-tag but an whatever- you-want-tag (for example a DIV-tag in a header).

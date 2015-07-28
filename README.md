@@ -13,7 +13,18 @@ displayed on. This not only takes away the trouble of handling this yourself, bu
 ##Usage
 -----
 
-Reference the JavaScript file manually directly after jQuery:
+###Bower
+```html
+bower install jpicture
+```
+
+###npm
+```html
+npm install jpicture
+```
+
+###The oldschool way
+Reference the JavaScript file manually directly after [jQuery](http://jquery.com):
 
 ```html
 <script src="jpicture.min.js"></script>
@@ -210,7 +221,7 @@ $('#some-fancy-pic').jp({
 });
 ```
 
-You are not forced to use picture at all.
+You are not forced to use pictures at all.
 		
 ```javascript
 $('#headline-section').jp({

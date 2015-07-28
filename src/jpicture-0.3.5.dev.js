@@ -1,5 +1,5 @@
 // version: 0.3.5
-(function ($, win) {
+;(function ($, win) {
     'use strict';
 
     // @param picList : object, key is url, val is width

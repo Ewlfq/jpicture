@@ -27,7 +27,7 @@ npm install jpicture
 Reference the JavaScript file manually directly after [jQuery](http://jquery.com):
 
 ```html
-<script src="jpicture.min.js"></script>
+<script src="jpicture-0.4.0.min.js"></script>
 ```
 
 ##Documentation

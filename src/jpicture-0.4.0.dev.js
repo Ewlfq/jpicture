@@ -1,4 +1,3 @@
-// version: 0.3.5
 ;(function ($, win) {
     'use strict';
 
@@ -13,7 +12,7 @@
         var containerCSS = { 
             'background-repeat' : 'no-repeat',
             'background-size' : 'cover',
-            'display' : 'block', /* omfg I am scared */
+            'display' : 'block',
             enableZoom : true,
             orientationChange : true
         },
@@ -143,7 +142,7 @@
         },
         
         hasLT = function (str) {
-            return !str.indexOf('&lt;') === -1
+            return str.indexOf('&lt;') !== -1;
         },
         
         // gets called at the bottom of the plugin
@@ -177,7 +176,7 @@
             
             // First optional parameter is a object.
             if (checkType(p1, 'Object')) {      
-                containerCSS = $.extend( {}, containerCSS, p1);
+                containerCSS = $.extend({}, containerCSS, p1);
                 
                 // First optional parameter is object and the second one is a callback.
                 if (checkType(p2, 'Function')) {

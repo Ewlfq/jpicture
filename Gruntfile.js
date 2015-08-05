@@ -20,19 +20,11 @@ module.exports = function (grunt) {
           jQuery: true
         }
       }
-    },
-    
-    copy: {
-      main: {
-        src: 'src/*',
-        dest: 'dest/',
-      },
-    },
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  // Default task(s).
   grunt.registerTask('default', ['jshint', 'uglify']);
 };

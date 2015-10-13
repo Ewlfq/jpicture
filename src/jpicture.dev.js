@@ -11,36 +11,12 @@ $.fn.jp = function (parameter) {
         'background-repeat' : 'no-repeat',
         'background-size' : 'cover',
         'display' : 'block'
-    },
-    
-    settings = {},
-    
-    checkParameters = function (para) {
-        if (!para.hasOwnProperty('picList')) {
-            var picList = para;
-            para = {
-                picList: picList  
-            };
-        }
-        
-        settings = $.extend({}, {
-            enableZoom : true,
-            orientationChange : true,
-            callback : function noop () { },
-            animationSpeed: 'fast',
-            checkForHtml: true,
-            lastPicture : {
-                height : 0, // at the moment not needed.
-                width : 0
-            }
-        }, para);
     };
-    
-    checkParameters(parameter);
     
     return this.each(function () {
         var $container = $(this),
-        
+            settings = {},  
+            
         checkType = function (elem, type) {
             if (Object.prototype.toString.call(elem) === '[object ' + type + ']') {
                 return true;
@@ -181,15 +157,34 @@ $.fn.jp = function (parameter) {
            } 
         }, 
     
-        initParameters = function ($container, picList) {                            
+        initParameters = function ($container, para) {  
+            if (!para.hasOwnProperty('picList')) {
+                var picList = para;
+                para = {
+                    picList: picList  
+                };
+            }
+        
+            settings = $.extend({}, {
+                enableZoom : true,
+                orientationChange : true,
+                callback : function noop () { },
+                animationSpeed: 'fast',
+                checkForHtml: true,
+                lastPicture : {
+                    height : 0, // at the moment not needed.
+                    width : 0
+                }
+            }, para);       
+                              
             // optional parameter for enabling/disabling Zoom, default on.
             if (settings.enableZoom) {
-                onZoom($container, picList);
+                onZoom($container, settings.picList);
             }
             
             // optional parameter for orientationChange, default on.
             if (settings.orientationChange) {
-                onOrientationChange($container, picList);
+                onOrientationChange($container, settings.picList);
             }
         };
         

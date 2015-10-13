@@ -28,7 +28,7 @@ npm install jpicture
 
 ### The oldschool way
 Reference the JavaScript file manually directly after [jQuery](http://jquery.com):
-
+TODO: the minifyed version of jp can be found in build/...
 ```html
 <script src="jpicture-0.5.0.min.js"></script>
 ```
@@ -289,6 +289,9 @@ The only way we know, to not have that issue is to use other elements than IMG f
 
 ## What is new in version 0.5.0+
 TODO:
+
+## How to build your own version 
+TODO: go to dir, npm install, grunt, have fun
 
 ### Authors 
 

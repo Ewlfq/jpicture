@@ -1,4 +1,4 @@
-# jPicture
+# jPicture 0.5.0
 ========
 As many of you might have at least once experienced, is that on smaller devices with slow connection pictures seem to load forever.
 
@@ -9,6 +9,8 @@ for.
 
 To break it down to the essence, jPicture loads only the most fitting picture out of the picture-versions for the viewport the page is
 displayed on. This not only takes away the trouble of handling this yourself, but also reduces loading times for lower-res viewports.
+
+just 1.73 KB
 
 ## Usage
 -----
@@ -27,7 +29,7 @@ npm install jpicture
 Reference the JavaScript file manually directly after [jQuery](http://jquery.com):
 
 ```html
-<script src="jpicture-0.4.0.min.js"></script>
+<script src="jpicture-0.5.0.min.js"></script>
 ```
 
 ## Documentation

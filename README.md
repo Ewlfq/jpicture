@@ -11,6 +11,8 @@ displayed on. This not only takes away the trouble of handling this yourself, bu
 
 TODO:
 just 1.73 KB
+TODO:
+lazy loading
 
 ## Usage
 

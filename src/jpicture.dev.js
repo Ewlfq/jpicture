@@ -7,7 +7,7 @@
 // @param orientationChange : boolean
 $.fn.jp = function (parameter) {
          
-    // this obj stores all css properties, which are added to the fetched html elem $('#special.div').
+    // this obj stores all css properties, which are added to the fetched html elem e.g. $('#special.div').
     var containerCSS = { 
         'background-repeat' : 'no-repeat',
         'background-size' : 'cover',

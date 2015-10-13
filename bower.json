@@ -17,13 +17,17 @@
   },
   "keywords": [
     "jquery",
+    "plugin",
     "jpicture",
     "pictures",
     "img",
+    "lazyloading",
+    "lazy",
     "images",
     "image",
     "responsive",
-    "plugin"
+    "jquery-plugin",
+    "ecosystem:jquery"
   ],
   "license": "MIT"
 }

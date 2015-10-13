@@ -4,9 +4,12 @@
   "description": "A jQuery plugin to load pictures on the right view port.",
   "keywords": [
     "jquery",
+    "plugin",
     "jpicture",
     "pictures",
     "img",
+    "lazyloading",
+    "lazy",
     "images",
     "image",
     "responsive",

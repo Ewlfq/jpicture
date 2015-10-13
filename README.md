@@ -35,6 +35,7 @@ Reference the JavaScript file manually directly after [jQuery](http://jquery.com
 ## Documentation
 ---
 For a beautiful version of the documentation visit [Documentation page of jPicture.net](http://jpicture.net/documentation/).
+For older version of jpicture >= 0.4.0 visit  [Legacy documentation page of jPicture.net](coming soon).
 
 ### The easiest way to use jPicture is, with an ID on an IMG-tag. This works as follows:
 

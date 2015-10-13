@@ -1,12 +1,13 @@
 ;(function ($, win) { 'use strict';
-// version 0.5.0
+// jPicture version 0.5.0
+// Authors: Oliver Jessner, Zoran Milanovic
 // @param picList : object, key is url, val is width
 // @param callback : function 
 // @param enableZoom : boolean
 // @param orientationChange : boolean
 $.fn.jp = function (parameter) {
          
-    // this obj stores all css properties, which are added to the fetched html elem $('#special.div')
+    // this obj stores all css properties, which are added to the fetched html elem $('#special.div').
     var containerCSS = { 
         'background-repeat' : 'no-repeat',
         'background-size' : 'cover',
@@ -25,10 +26,10 @@ $.fn.jp = function (parameter) {
         enableZoom : true,
         orientationChange : true,
         callback : function noop () { },
-        animationSpeed: 'fast', // at the moment not used
+        animationSpeed: 'fast', // at the moment not used.
         checkForHtml: true,
         lastPicture : {
-            height : 0, // at the moment not used
+            height : 0, // at the moment not used.
             width : 0
         }
     }, parameter);  
@@ -113,7 +114,7 @@ $.fn.jp = function (parameter) {
                     useDiv($container, imgProp.key);    
                 } 
                 
-                // if there is no callback passed, it is just a noop
+                // if there is no callback passed, it is just a noop.
                 settings.callback($container);
     		});
         }, 
@@ -161,12 +162,12 @@ $.fn.jp = function (parameter) {
                 
            // only refetches the img if the width shrinks or grows.
            if (!isSameWidth(containerWidth)) {
-               // User wants to hide everything
+               // User wants to hide anything.
                if (imgObj.key === 'hidden') {
                   $container.css('display', 'none');   
                   cacheWandH(0, 0);
                   
-               // User wants to display some html
+               // User wants to display some html.
                } else if ((hasWhiteSpace(imgObj.key) || hasLT(imgObj.key)) && settings.checkForHtml) { 
                    $container.html(imgObj.key);
                    clearPicture($container);
@@ -189,7 +190,7 @@ $.fn.jp = function (parameter) {
             }
         };
         
-        // Init of plugin is here 
+        // Init of plugin is here.
         initParameters($container, settings.picList);
         setPicture($container, settings.picList);
         return $container;

@@ -1,33 +1,39 @@
-;(function ($, win) {
-    'use strict';
-
-    // @param picList : object, key is url, val is width
-    // @param p1 : is either a function or an object
-    // @param p2 : function, if p1 is used it has to be a function  
-    $.fn.jp = function (picList, p1, p2) {
+;(function ($, win) { 'use strict';
+// version 0.5.0
+// @param picList : object, key is url, val is width
+// @param callback : function 
+// @param enableZoom : boolean
+// @param orientationChange : boolean
+$.fn.jp = function (parameter) {
          
-    return this.each(function () {
-                
-        // this obj stores all css properties.
-        var containerCSS = { 
-            'background-repeat' : 'no-repeat',
-            'background-size' : 'cover',
-            'display' : 'block',
+    // this obj stores all css properties, which are added to the fetched html elem $('#special.div')
+    var containerCSS = { 
+        'background-repeat' : 'no-repeat',
+        'background-size' : 'cover',
+        'display' : 'block'
+    },
+    
+    settings = {},
+    
+    checkParameters = function (para) {
+        settings = $.extend({}, {
             enableZoom : true,
-            orientationChange : true
-        },
-        
-        // this obj stores all properties.
-        containerProp = {
-            callback : null,
+            orientationChange : true,
+            callback : function noop () { },
             animationSpeed: 'fast',
             checkForHtml: true,
             lastPicture : {
                 height : 0, // at the moment not needed.
                 width : 0
-            } 
-        },
+            }
+        }, para);
+    };
     
+    checkParameters(parameter);
+    
+    return this.each(function () {
+        var $container = $(this),
+        
         checkType = function (elem, type) {
             if (Object.prototype.toString.call(elem) === '[object ' + type + ']') {
                 return true;
@@ -57,8 +63,8 @@
         },
         
         cacheWandH = function (w, h) {
-            containerProp.lastPicture.width = w;
-            containerProp.lastPicture.height = h;
+            settings.lastPicture.width = w;
+            settings.lastPicture.height = h;
         },
     
         // this calucates the growing or shrink height of the element.
@@ -70,23 +76,24 @@
         // This function fetches the image through ajax. In case of a non-img.
         // element it also checks if the height is 0. If it is 0 it resizes the.
         // non-img element to the height of the picture.
-        fetchImg =  function (container, imgProp, containerWidth) {  
-            var useImg = function (imgTag, url) {
-            	imgTag.attr('src', url);  
-            	imgTag.css('display', 'block'); 
-                cacheWandH($(imgTag).width(), $(imgTag).height());
+        fetchImg =  function ($container, imgProp, containerWidth) {  
+            var useImg = function ($imgElem, url) {
+            	$imgElem.attr('src', url);  
+            	$imgElem.css('display', 'block'); 
+                cacheWandH($imgElem.width(), $imgElem.height());
             }, 
+            
             // container is the non-img tag.
-            useDiv = function (container, url) {
+            useDiv = function ($container, url) {
                 var loadImg = new Image(); // We need this image obj to get the height. 
  
                 // it is also very important to check dynamic heights, like navi pictures,
                 // those get a predefined height of their inside elements example: oliverj.net.
                 loadImg.onload = function() {
-                    var w = $(container).width();
+                    var w = $container.width();
                     containerCSS.backgroundImage = 'url(' + url + ')';
                     containerCSS.height = calcResizingRatio(loadImg.width, w, loadImg.height);
-                    container.css(containerCSS);
+                    $container.css(containerCSS);
                     cacheWandH(w, containerCSS.height);
                 };
                 loadImg.src = url;     
@@ -97,44 +104,42 @@
               	cache: true,
        	 		processData : false
     		}).always(function () {
-                if (container.tagName === 'IMG') {
-                    useImg($(container), imgProp.key);
+                if ($container.tagName === 'IMG') {
+                    useImg($container, imgProp.key);
                 } else {
-                    useDiv($(container), imgProp.key);    
+                    useDiv($container, imgProp.key);    
                 } 
-                // Pass the container object to the callback function. 
-                // Therefore the user can modify the picture through the callback.
-                if(containerProp.callback){
-                    containerProp.callback(container);
-                }
+                
+                // if there is no callback passed, it is just a noop
+                settings.callback($container);
     		});
         }, 
     
-        onZoom = function (container, picList) {
+        onZoom = function ($container, picList) {
             win.addEventListener('resize', function () {
-                setPicture(container, picList);
+                setPicture($container, picList);
             });
         },
         
         // simlest solution for OrientationChange.
-        onOrientationChange = function (container, picList) {
+        onOrientationChange = function ($container, picList) {
             win.addEventListener('orientationchange', function () {
                 switch (win.orientation) {  
-                    case -90: case 90: setPicture(container, picList); break; 
-                    default: setPicture(container, picList); break; 
+                    case -90: case 90: setPicture($container, picList); break; 
+                    default: setPicture($container, picList); break; 
                 } 
             });
         },
         
-        clearPicture = function (container) {
-            $(container).css({
+        clearPicture = function ($container) {
+            $container.css({
                 'background-image': 'none',
                 'height': 'auto'
             });
         }, 
         
-        isNotSameWidth = function (containerWidth) {
-            return containerProp.lastPicture.width !== containerWidth;    
+        isSameWidth = function (containerWidth) {
+            return settings.lastPicture.width === containerWidth;    
         },
         
         hasWhiteSpace = function (str) {
@@ -147,63 +152,43 @@
         
         // gets called at the bottom of the plugin
         // and everytime the user resizes or changes the orientation.
-        setPicture = function (container, picList) {
-            var containerWidth = $(container).width(),
+        setPicture = function ($container, picList) {
+            var containerWidth = $container.width(),
                 imgObj = findMatchingWidth(picList, containerWidth);
                 
            // only refetches the img if the width shrinks or grows.
-           if (isNotSameWidth(containerWidth)) {
+           if (!isSameWidth(containerWidth)) {
                // User wants to hide everything
                if (imgObj.key === 'hidden') {
-                  $(container).css('display', 'none');   
+                  $container.css('display', 'none');   
                   cacheWandH(0, 0);
+                  
                // User wants to display some html
-               } else if ((hasWhiteSpace(imgObj.key) || hasLT(imgObj.key)) && containerProp.checkForHtml) { 
-                   $(container).html(imgObj.key);
-                   clearPicture(container);
+               } else if ((hasWhiteSpace(imgObj.key) || hasLT(imgObj.key)) && settings.checkForHtml) { 
+                   $container.html(imgObj.key);
+                   clearPicture($container);
                } else {
-               	  fetchImg(container, imgObj, containerWidth);
-                  $(container).html('');
+               	  fetchImg($container, imgObj, containerWidth);
+                  $container.html('');
                }
            } 
         }, 
     
-        initParameters = function (container, picList, p1, p2) {            
-            // First optional parameter is a callback.
-            if (checkType(p1, 'Function')) {
-                containerProp.callback = p1; 
-            } 
-            
-            // First optional parameter is a object.
-            if (checkType(p1, 'Object')) {      
-                containerCSS = $.extend({}, containerCSS, p1);
-                
-                // First optional parameter is object and the second one is a callback.
-                if (checkType(p2, 'Function')) {
-                    containerProp.callback = p2; 
-                }
-            }   
+        initParameters = function ($container, picList) {                            
             // optional parameter for enabling/disabling Zoom, default on.
-            if (containerCSS.enableZoom) {
-                onZoom(container, picList);
-            } else {
-            	setPicture(this, picList); 
-            }
-            // optional parameter for orientationChange, default on.
-            if (containerCSS.orientationChange) {
-                onOrientationChange(container, picList);
-            } else {
-            	setPicture(this, picList); 
+            if (settings.enableZoom) {
+                onZoom($container, picList);
             }
             
-            delete containerCSS.enableZoom; // not very happy about this.
-            delete containerCSS.orientationChange; // not very happy about this.
+            // optional parameter for orientationChange, default on.
+            if (settings.orientationChange) {
+                onOrientationChange($container, picList);
+            }
         };
         
-        // Plugin starts here.
-        initParameters(this, picList, p1, p2);
-        setPicture(this, picList);     
-        
-        return this;
+        // Init of plugin is here 
+        initParameters($container, parameter);
+        setPicture($container, settings.picList);
+        return $container;
     });
 }; }(jQuery, window));

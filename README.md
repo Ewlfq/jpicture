@@ -65,6 +65,7 @@ $('.some-fancy-pics').jp({
 });
 ```
 
+TODO: Own headline "Fallback no js" 
 If you care about users without javascript enabled, you can include the original image inside a <noscript>; tag:
 
 ```html

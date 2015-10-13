@@ -11,11 +11,31 @@ $.fn.jp = function (parameter) {
         'background-repeat' : 'no-repeat',
         'background-size' : 'cover',
         'display' : 'block'
-    };
+    },
+    settings = {};
+    
+    if (!parameter.hasOwnProperty('picList')) {
+        var picList = parameter;
+        parameter = {
+            picList: picList  
+        };
+    }
+
+    settings = $.extend({}, {
+        enableZoom : true,
+        orientationChange : true,
+        callback : function noop () { },
+        animationSpeed: 'fast', // at the moment not used
+        checkForHtml: true,
+        lastPicture : {
+            height : 0, // at the moment not used
+            width : 0
+        }
+    }, parameter);  
     
     return this.each(function () {
         var $container = $(this),
-            settings = {},  
+             
             
         checkType = function (elem, type) {
             if (Object.prototype.toString.call(elem) === '[object ' + type + ']') {
@@ -157,39 +177,20 @@ $.fn.jp = function (parameter) {
            } 
         }, 
     
-        initParameters = function ($container, para) {  
-            if (!para.hasOwnProperty('picList')) {
-                var picList = para;
-                para = {
-                    picList: picList  
-                };
-            }
-        
-            settings = $.extend({}, {
-                enableZoom : true,
-                orientationChange : true,
-                callback : function noop () { },
-                animationSpeed: 'fast',
-                checkForHtml: true,
-                lastPicture : {
-                    height : 0, // at the moment not needed.
-                    width : 0
-                }
-            }, para);       
-                              
+        initParameters = function ($container, picList) {                                
             // optional parameter for enabling/disabling Zoom, default on.
             if (settings.enableZoom) {
-                onZoom($container, settings.picList);
+                onZoom($container, picList);
             }
             
             // optional parameter for orientationChange, default on.
             if (settings.orientationChange) {
-                onOrientationChange($container, settings.picList);
+                onOrientationChange($container, picList);
             }
         };
         
         // Init of plugin is here 
-        initParameters($container, parameter);
+        initParameters($container, settings.picList);
         setPicture($container, settings.picList);
         return $container;
     });

@@ -9,6 +9,7 @@ for.
 To break it down to the essence, jPicture loads only the most fitting picture out of the picture-versions for the viewport the page is
 displayed on. This not only takes away the trouble of handling this yourself, but also reduces loading times for lower-res viewports.
 
+TODO:
 just 1.73 KB
 
 ## Usage
@@ -32,6 +33,7 @@ Reference the JavaScript file manually directly after [jQuery](http://jquery.com
 
 ## Documentation
 For a beautiful version of the documentation visit [Documentation page](http://jpicture.net/documentation/).
+TODO:
 For older version of jpicture >= 0.4.0 visit  [Legacy documentation page](coming soon).
 
 ### The easiest way to use jPicture is, with an ID on an IMG-tag. This works as follows:
@@ -88,7 +90,7 @@ $('.some-fancy-pics').jp({
 Now if the best fitting version would be for the picture version of 200 pixels, then it will be hidden by setting the display property of CSS to none.
 
 ### You can even set CSS-properties
-
+TODO:
 To do so, you can give jPicture a second object as parameter, after the object containing the pictures. The second object should contain the CSS-properties you want to set. For example, if you want to set the opacity to 0.5 you would need to do as follows:
 
 ```javascript
@@ -107,7 +109,7 @@ $('.some-fancy-pics').jp({
 ```
 
 ### Need callbacks?
-
+TODO:
 If you need a callback-function, then you can also give a callback to jPicture as a parameter. For example you want to print to the console when picture was loaded, that would look like follows:
 
 ```javascript
@@ -124,7 +126,7 @@ $('.some-fancy-pics').jp({
 Now each time the picture finished loading, "Picture was loaded." will be printed in the console.
 
 ### Further modification
-
+TODO:
 What if you need to do something with the picture after you loaded it? Well, just easily hand it over as parameter in the callback-function. In the following example the width of the picture will be logged in the console.
 
 ```javascript
@@ -141,7 +143,7 @@ $('.some-fancy-pics').jp({
 ```
 
 ### CSS and callbacks
-
+TODO:
 You need to change some of the CSS-properties and want to modify the picture with another function too? Nothing simpler than that with jPicture. You can do both simultaneously in one call of jPicture. For the following example the picture will be set to an opacity of 0.5 and then the width will be logged to the console as well as the opacity.
 
 ```javascript
@@ -164,7 +166,7 @@ $('.some-fancy-pics').jp({
 Note that in case you need both, the CSS-properties always go first and after that the function is passed!
 
 ### Disable Zoom or Change OrientationChange
-
+TODO:
 jPicture comes with an automatic Zoom and OrientationChange Event. If you want do disable this events just set enableZoom or orientationChange to false.
 
 ```javascript
@@ -181,7 +183,7 @@ $('.some-fancy-pics').jp({
 ```
 
 ### CSS, Callback and Chaining
-
+TODO:
 You can chain every jquery method to the end of the jpicture function.
 
 ```javascript
@@ -206,7 +208,7 @@ $('.some-fancy-pics').jp({
 ```
 
 ### Inject HTML instead of pictures
-
+TODO:
 Sometimes it is better display text instead of pictures.
 Attention jPicture only recognizes html tags or text with at least one whitespace as 
 none picture elements.
@@ -283,6 +285,7 @@ The only way we know, to not have that issue is to use other elements than IMG f
 
 
 ## What is new in version 0.5.0+
+TODO:
 
 ### Authors 
 

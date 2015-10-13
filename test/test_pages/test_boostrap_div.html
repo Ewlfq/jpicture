@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Test Page for jPicture with bootstrap</title>
+        <title>Test with bootstrap and divs</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <style>.row{border:solid 1px #E7E7E7; margin-bottom: 5px;} img{width:100%;}</style>
     </head>
@@ -9,12 +9,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
-                     <h1>Test Page for jPicture with bootstrap</h1>
+                     <h1>Test with bootstrap and divs</h1>
                 </div>
             </div>    
                 
             <div class="row">
                 <div class="col-sm-1">
+                    <small class="text-muted">col-sm-1</small>
                     <div class="img-responsive col-1" id="col-1-2"></div>
                 </div>
                 
@@ -26,12 +27,14 @@
                 </div>
                 
                 <div class="col-sm-1">
+                    <small class="text-muted">col-sm-1</small>
                     <div class="img-responsive col-1" id="col-1-2"></div>
                 </div>
             </div>
                 
             <div class="row">
                 <div class="col-sm-4">
+                    <small class="text-muted">col-sm-4</small>
                     <div class="img-responsive col-4" id="col-4-2"></div>
                 </div>
                 
@@ -42,12 +45,14 @@
                 </div>
                 
                 <div class="col-sm-4">
+                    <small class="text-muted">col-sm-4</small>
                     <div class="img-responsive col-6" id="col-4-2"></div>
                 </div>
             </div>
             
             <div class="row">
                 <div class="col-sm-6">
+                    <small class="text-muted">col-sm-6</small>
                     <div class="img-responsive col-6" id="halfpic"></div>
                 </div>
                 
@@ -64,6 +69,7 @@
             
             <div class="row">
                 <div class="col-sm-8">
+                    <small class="text-muted">col-sm-8</small>
                     <div class="img-responsive" id="col-8"></div>
                 </div>
                 
@@ -77,6 +83,7 @@
             </div>
             
             <div class="row">
+                 <small class="text-muted">col-sm-12</small>
                  <div class="img-responsive" id="col-12"></div>
             </div>
         </div>
@@ -86,7 +93,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script>
         var picList = {
-            '<span>is it working?</span>' : 80, 
+            '<span>not enough space</span>' : 80, 
             '../test_imgs/we_200.jpg' : 200, 
             '../test_imgs/we_400.jpg' : 400, 
             '../test_imgs/we_600.jpg' : 600, 
@@ -94,10 +101,30 @@
              '../test_imgs/we_1280.jpg' : 1280, 
         };
     
-        $('.col-1').jp(picList);
-        $('.col-4').jp(picList);
-        $('.col-6').jp(picList);
-        $('#col-8').jp(picList);
+        $('.col-1').jp(picList).mouseenter(function () {
+            $(this).css({'opacity' : '0.5'});
+        }).mouseleave(function () {
+            $(this).css({'opacity' : '1'});            
+        });
+        
+        $('.col-4').jp(picList).mouseenter(function () {
+            $(this).css({'opacity' : '0.5'});
+        }).mouseleave(function () {
+            $(this).css({'opacity' : '1'});            
+        });
+        
+        $('.col-6').jp(picList).mouseenter(function () {
+            $(this).css({'opacity' : '0.5'});
+        }).mouseleave(function () {
+            $(this).css({'opacity' : '1'});            
+        });
+        
+        $('#col-8').jp(picList).mouseenter(function () {
+            $(this).css({'opacity' : '0.5'});
+        }).mouseleave(function () {
+            $(this).css({'opacity' : '1'});            
+        });
+        
         $('#col-12').jp(picList).mouseenter(function () {
             $(this).css({'opacity' : '0.5'});
         }).mouseleave(function () {

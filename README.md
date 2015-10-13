@@ -13,7 +13,6 @@ displayed on. This not only takes away the trouble of handling this yourself, bu
 just 1.73 KB
 
 ## Usage
------
 
 ### Bower
 ```html

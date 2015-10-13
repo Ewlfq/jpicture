@@ -281,6 +281,9 @@ $('#banner').outerWidth();
 
 The only way we know, to not have that issue is to use other elements than IMG for example a DIV-element should get the job done as expected. As we have already mentioned this is only needed for Firefox.
 
+
+## What is new in version 0.5.0+
+
 ### Authors 
 
 Zoran Milanovic  [@HayterMiles ](https://twitter.com/HayterMiles) 

@@ -1,4 +1,4 @@
-#jPicture
+# jPicture
 ========
 As many of you might have at least once experienced, is that on smaller devices with slow connection pictures seem to load forever.
 
@@ -10,31 +10,31 @@ for.
 To break it down to the essence, jPicture loads only the most fitting picture out of the picture-versions for the viewport the page is
 displayed on. This not only takes away the trouble of handling this yourself, but also reduces loading times for lower-res viewports.
 
-##Usage
+## Usage
 -----
 
-###Bower
+### Bower
 ```html
 bower install jpicture
 ```
 
-###npm
+### npm
 ```html
 npm install jpicture
 ```
 
-###The oldschool way
+### The oldschool way
 Reference the JavaScript file manually directly after [jQuery](http://jquery.com):
 
 ```html
 <script src="jpicture-0.4.0.min.js"></script>
 ```
 
-##Documentation
+## Documentation
 ---
 For a beautiful version of the documentation visit [Documentation page of jPicture.net](http://jpicture.net/documentation/).
 
-###The easiest way to use jPicture is, with an ID on an IMG-tag. This works as follows:
+### The easiest way to use jPicture is, with an ID on an IMG-tag. This works as follows:
 
 ```javascript
 $('#my-fancy-pic').jp({
@@ -47,7 +47,7 @@ $('#my-fancy-pic').jp({
 ```
 This is an object, which you give jPicture as parameter where the key is the path to the picture and the value is the width of that picture. (Of course the picture should have the corresponding width.) With that given jPicture can determine which picture it should use for the best visualisation on the resolution the site is being viewed on.
 
-###You can use jPicture on classes too
+### You can use jPicture on classes too
 
 If you are using the same picture more frequently on the same page, you might want to use a class for that. But what if you want to use jPicture too? Well, that is no problem after all, everything you need to change is instead of selecting an ID you now	need to select a class. This works as follows:
 
@@ -69,11 +69,11 @@ If you care about users without javascript enabled, you can include the original
 </noscript>
 ```
 
-###You need to use non-IMG-tags – no problem
+### You need to use non-IMG-tags – no problem
 
 Sometimes an IMG-tag just isn't enough, but even that is no problem for jPicture after all. You can simply use it just the way you already did. The only difference is that the tag with corresponding ID or class is not an IMG-tag but an whatever- you-want-tag (for example a DIV-tag in a header).
 
-###Your picture just won't look good on lower resolutions?
+### Your picture just won't look good on lower resolutions?
 
 No problem, you can simply tell jPicture to not show the picture at all if the solution is too small, for example if your banner would just waste space on a low-res device, you can simply do as follows:
 
@@ -87,7 +87,7 @@ $('.some-fancy-pics').jp({
 ```
 Now if the best fitting version would be for the picture version of 200 pixels, then it will be hidden by setting the display property of CSS to none.
 
-###You can even set CSS-properties
+### You can even set CSS-properties
 
 To do so, you can give jPicture a second object as parameter, after the object containing the pictures. The second object should contain the CSS-properties you want to set. For example, if you want to set the opacity to 0.5 you would need to do as follows:
 
@@ -106,7 +106,7 @@ $('.some-fancy-pics').jp({
 });
 ```
 
-###Need callbacks?
+### Need callbacks?
 
 If you need a callback-function, then you can also give a callback to jPicture as a parameter. For example you want to print to the console when picture was loaded, that would look like follows:
 
@@ -123,7 +123,7 @@ $('.some-fancy-pics').jp({
 ```
 Now each time the picture finished loading, "Picture was loaded." will be printed in the console.
 
-###Further modification
+### Further modification
 
 What if you need to do something with the picture after you loaded it? Well, just easily hand it over as parameter in the callback-function. In the following example the width of the picture will be logged in the console.
 
@@ -140,7 +140,7 @@ $('.some-fancy-pics').jp({
 });
 ```
 
-###CSS and callbacks
+### CSS and callbacks
 
 You need to change some of the CSS-properties and want to modify the picture with another function too? Nothing simpler than that with jPicture. You can do both simultaneously in one call of jPicture. For the following example the picture will be set to an opacity of 0.5 and then the width will be logged to the console as well as the opacity.
 
@@ -163,7 +163,7 @@ $('.some-fancy-pics').jp({
 ```
 Note that in case you need both, the CSS-properties always go first and after that the function is passed!
 
-###Disable Zoom or Change OrientationChange
+### Disable Zoom or Change OrientationChange
 
 jPicture comes with an automatic Zoom and OrientationChange Event. If you want do disable this events just set enableZoom or orientationChange to false.
 
@@ -180,7 +180,7 @@ $('.some-fancy-pics').jp({
 });
 ```
 
-###CSS, Callback and Chaining
+### CSS, Callback and Chaining
 
 You can chain every jquery method to the end of the jpicture function.
 
@@ -205,7 +205,7 @@ $('.some-fancy-pics').jp({
 });
 ```
 
-###Inject HTML instead of pictures
+### Inject HTML instead of pictures
 
 Sometimes it is better display text instead of pictures.
 Attention jPicture only recognizes html tags or text with at least one whitespace as 
@@ -233,7 +233,7 @@ $('#headline-section').jp({
 });
 ```
 
-####Literals and Variables
+#### Literals and Variables
 
 Just in case, you didnt know. Instead of Literals we could use variables.
 
@@ -260,14 +260,14 @@ var callback = function (pic) {
 $('.some-fancy-pics').jp(picList, cssProperties, callback);
 ```
 
-##Known Issues
+## Known Issues
 ---
 
-###A smaller picture is chosen
+### A smaller picture is chosen
 
 As far as we know this only appears on Firefox and only with a screen width of 1920 or more pixels, but only with IMG- elements. If all of that comes together in Firefox, then the IMG-element will be sized with a wrong width which causes jPicture to load a smaller version of the picture unregarding the actual resolution or element width. Of course this doesn't look quite good on higher resolutions, but as soon as a resize or an orientation change takes place the correct version will be loaded.
 
-####Things we tried
+#### Things we tried
 
 ```javascript
 document.getElementById('banner').offsetWidth;
@@ -278,11 +278,11 @@ $('#banner').css('width');
 $('#banner').outerWidth();
 ```
 
-####Workaround
+#### Workaround
 
 The only way we know, to not have that issue is to use other elements than IMG for example a DIV-element should get the job done as expected. As we have already mentioned this is only needed for Firefox.
 
-###Authors 
+### Authors 
 -------
 
 Zoran Milanovic  [@HayterMiles ](https://twitter.com/HayterMiles) 

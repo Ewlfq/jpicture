@@ -3,22 +3,23 @@ module.exports = function (grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
+    jshint: {
+      files: ['src/<%= pkg.name %>.dev.js'],
+      options: {
+        globals: {
+          jQuery: true
+        }
+      }
+    },
+      
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
-        src: 'src/<%= pkg.name %>-<%= pkg.version %>.dev.js',
+        src: 'src/<%= pkg.name %>.dev.js',
         dest: 'build/<%= pkg.name %>-<%= pkg.version %>.min.js'
-      }
-    },
-    
-    jshint: {
-      files: ['src/<%= pkg.name %>-<%= pkg.version %>.dev.js'],
-      options: {
-        globals: {
-          jQuery: true
-        }
       }
     }
   });

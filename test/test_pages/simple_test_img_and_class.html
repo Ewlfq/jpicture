@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Test Page for jPicture with divs and callbacks</title>
+        <title>Test Page with imgs and class</title>
         
         <style>
             #first{
@@ -16,7 +16,7 @@
                 width: 375px;
             }
             
-            #fourth{ 
+            #fourth{
                 width: 210px;
             }
             
@@ -25,12 +25,12 @@
             }
             
             .pic{}
-            
+                
             div.row{
                 width: 100%;
                 float: left;
             }
-            
+                
             div.container{
                 float: left;
                 margin-right: 5px;
@@ -38,59 +38,54 @@
         </style>
     </head>
     <body>
-        <h1>Test Page for jPicture with divs and callbacks</h1>
+        <h1>Test Page with imgs and class</h1>
         <div class="row">
-            <div class="container">
+            <div  class="container">
                 <h2>775 px</h2>
-                <div id="first" class="pic"></div>
+                <img id="first" class="pic">
             </div>
         
-            <div class="container">
+            <div  class="container"> 
                 <h2>510 px</h2>
-                <div id="second" class="pic"></div>
+                <img id="second" class="pic">
             </div>
         </div>
         
-        <div class="row">
-            <div class="container">
+        <div class="row">  
+            <div  class="container">
                 <h2>375 px</h2>
-                <div id="third" class="pic"></div>
+                <img id="third" class="pic">
             </div>
-            
-            <div class="container">
+                      
+            <div  class="container">
                 <h2>210 px</h2>
-                <div id="fourth" class="pic"></div>
+                <img id="fourth" class="pic">
             </div>
         
-            <div class="container">
+            <div  class="container"> 
                 <h2>60 px</h2>
-                <div id="fifth" class="pic"></div>
+                <img id="fifth" class="pic">
             </div>
         </div>
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script type="text/javascript" charset="utf-8" src="../../src/jpicture.dev.js"></script>
         <script>
-        var parameter = {
-            callback: function (pic) {
-                alert($(pic).width());
-            },
-            picList: {
-                '<p>Hello World</p>' : 80, 
-                '../test_imgs/we_200.jpg' : 200, 
-                '../test_imgs/we_400.jpg' : 400, 
-                '../test_imgs/we_600.jpg' : 600, 
-                '../test_imgs/we_800.jpg' : 800, 
-            }
+        var picList = {
+            '../test_imgs/we_80.jpg' : 80, 
+            '../test_imgs/we_200.jpg' : 200, 
+            '../test_imgs/we_400.jpg' : 400, 
+            '../test_imgs/we_600.jpg' : 600, 
+            '../test_imgs/we_800.jpg' : 800, 
         };
-    
-        $('#first').jp(parameter);
-        $('#second').jp(parameter);
-        $('#third').jp(parameter);
-        $('#fourth').jp(parameter);
-        $('#fifth').jp(parameter);
         
-        // $('.pic').jp(picList);
+        /*
+        $('#first').jp(picList);
+        $('#second').jp(picList);
+        $('#third').jp(picList);
+        $('#fourth').jp(picList);
+        $('#fifth').jp(picList);*/
+        $('.pic').jp(picList);
         </script>
     </body>
 </html>

@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Test Page for jPicture with divs and css obj</title>
+        <title>Test Page with divs</title>
         
         <style>
             #first{
@@ -38,7 +38,7 @@
         </style>
     </head>
     <body>
-        <h1>Test Page for jPicture with divs and css obj</h1>
+        <h1>Test Page with divs</h1>
         <div class="row">
             <div class="container">
                 <h2>775 px</h2>
@@ -78,25 +78,12 @@
             '../test_imgs/we_600.jpg' : 600, 
             '../test_imgs/we_800.jpg' : 800, 
         };
-        
-        var css = { 
-            'opacity' : '0.7',
-            'border-color' : '#C1E0FF', 
-            'border-width' : '5px', 
-            'border-style' : 'solid',
-            enableZoom : false,
-            orientationChange : false,
-        };
-        
-        var fun = function (pic) {
-            console.log($(pic).width());
-        };
-        
-        $('#third').jp(picList, css, fun);
-        $('#first').jp(picList, css, fun);
-        $('#second').jp(picList, css, fun);
-        $('#fourth').jp(picList, css, fun);
-        $('#fifth').jp(picList, css, fun);
+    
+        $('#first').jp(picList);
+        $('#second').jp(picList);
+        $('#third').jp(picList);
+        $('#fourth').jp(picList);
+        $('#fifth').jp(picList);
         
         // $('.pic').jp(picList);
         </script>

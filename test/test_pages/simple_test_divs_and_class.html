@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Test Page for jPicture with divs and css obj</title>
+        <title>Test Page with divs and class</title>
         
         <style>
             #first{
@@ -38,7 +38,7 @@
         </style>
     </head>
     <body>
-        <h1>Test Page for jPicture with divs and css obj</h1>
+        <h1>Test Page with divs and class</h1>
         <div class="row">
             <div class="container">
                 <h2>775 px</h2>
@@ -78,14 +78,8 @@
             '../test_imgs/we_600.jpg' : 600, 
             '../test_imgs/we_800.jpg' : 800, 
         };
-
-        $('#first').jp(picList);
-        $('#second').jp(picList);
-        $('#third').jp(picList);
-        $('#fourth').jp(picList);
-        $('#fifth').jp(picList);
         
-        // $('.pic').jp(picList);
+        $('.pic').jp(picList);
         </script>
     </body>
 </html>

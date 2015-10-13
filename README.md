@@ -14,6 +14,9 @@ just 1.73 KB
 TODO:
 lazy loading
 
+TODO:table of contents
+every headline is a # url
+
 ## Usage
 
 ### Bower

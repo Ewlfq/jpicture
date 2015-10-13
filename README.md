@@ -1,5 +1,4 @@
 # jPicture 0.5.0
-========
 As many of you might have at least once experienced, is that on smaller devices with slow connection pictures seem to load forever.
 
 Mainly the problem there is that the high-res pictures are loaded anyway and just get scaled down for the low-res viewport.
@@ -32,7 +31,6 @@ Reference the JavaScript file manually directly after [jQuery](http://jquery.com
 ```
 
 ## Documentation
----
 For a beautiful version of the documentation visit [Documentation page of jPicture.net](http://jpicture.net/documentation/).
 For older version of jpicture >= 0.4.0 visit  [Legacy documentation page of jPicture.net](coming soon).
 
@@ -263,7 +261,6 @@ $('.some-fancy-pics').jp(picList, cssProperties, callback);
 ```
 
 ## Known Issues
----
 
 ### A smaller picture is chosen
 
@@ -285,7 +282,6 @@ $('#banner').outerWidth();
 The only way we know, to not have that issue is to use other elements than IMG for example a DIV-element should get the job done as expected. As we have already mentioned this is only needed for Firefox.
 
 ### Authors 
--------
 
 Zoran Milanovic  [@HayterMiles ](https://twitter.com/HayterMiles) 
 

@@ -6,6 +6,9 @@
     "jquery",
     "jpicture",
     "pictures",
+    "img",
+    "images",
+    "image",
     "responsive",
     "jquery-plugin",
     "ecosystem:jquery"

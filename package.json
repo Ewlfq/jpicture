@@ -29,11 +29,14 @@
   "homepage": "http://jpicture.net",
   "demo": "http://jpicture.net/demo/",
   "docs": "http://jpicture.net/documentation/",
-  "license":  "MIT",
+  "license": "MIT",
   "dependencies": {
     "jquery": ">=1.5",
     "grunt": "~0.4.5",
     "grunt-contrib-uglify": "~0.9.1",
     "grunt-contrib-jshint": "~0.11.2"
+  },
+  "devDependencies": {
+    "grunt-open": "^0.2.3"
   }
 }

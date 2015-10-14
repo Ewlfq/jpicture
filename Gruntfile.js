@@ -1,6 +1,7 @@
+// First of all the source files runs throug jshint
+// After that it gets minified 
+// and last but not least it gets open via the browser
 module.exports = function (grunt) {
-
-  // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -21,11 +22,19 @@ module.exports = function (grunt) {
         src: 'src/<%= pkg.name %>.dev.js',
         dest: 'build/<%= pkg.name %>-<%= pkg.version %>.min.js'
       }
+    },
+    
+    open: {
+      dev: {
+        path: 'test/test_pages/boostrap_div.html',
+        app: 'Google Chrome'
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-open');
 
-  grunt.registerTask('default', ['jshint', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'uglify', 'open']);
 };

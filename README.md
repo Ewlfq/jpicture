@@ -296,9 +296,9 @@ TODO:
 ## How to build your own version 
 TODO: text
 ```html
-go to dir
-npm install
-grunt
+$ cd jpicture
+$ npm install
+$ grunt
 have fun
 ```
 

@@ -294,7 +294,13 @@ The only way we know, to not have that issue is to use other elements than IMG f
 TODO:
 
 ## How to build your own version 
-TODO: go to dir, npm install, grunt, have fun
+TODO: text
+```html
+go to dir
+npm install
+grunt
+have fun
+```
 
 ### Authors 
 

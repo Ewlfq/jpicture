@@ -12,7 +12,6 @@
     "url": "https://github.com/oliver-j/jPicture"
   },
   "description": "A jQuery plugin to load pictures on the right view port",
-  "main": "jpicture-0.5.0.min.js",
   "dependencies": {
       "jquery": "~1.10.2"
   },

@@ -9,13 +9,10 @@ for.
 To break it down to the essence, jPicture loads only the most fitting picture out of the picture-versions for the viewport the page is
 displayed on. This not only takes away the trouble of handling this yourself, but also reduces loading times for lower-res viewports. jPicture uses lazy loading for the initialisation of the pictures, so the pictures get loaded when needed.
 
-And now you might just think that it would take forever to get to his jQuery Plugin, right? But don't you worry it is just 1.73 kB small, so you can quickly download it and try it out.
+And now you might just think that it would take forever to get to this jQuery Plugin, right? But don't you worry it is just 1.73 kB small, so you can quickly download it and try it out.
 
-Table of contents:
+##Table of contents:
  - [Usage](#usage)
-   - [Bower](#bower)
-   - [npm](#npm)
-   - [The oldschool way](#the-oldschool-way)
  - [Documentation](#documentation)
  - [Known Issues](#known-issues)
  - [What is new in version 0.5.0+](#what-is-new-in-version-050)
@@ -244,6 +241,7 @@ The only way we know, to not have that issue is to use other elements than IMG f
  - now we follow the unofficial jQuery standard and have only one parameter left
  - code base was reduced
  - less memory gets allocated too
+ - removed the most hated js keyword in the world "delete"
 
 ## How to build your own version 
 If you would like to build your own version of jPicture, the only thing you need to do is to follow the steps below.

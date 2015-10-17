@@ -37,7 +37,6 @@ $.fn.jp = function (parameter) {
     return this.each(function () {
         var $container = $(this),
              
-            
         checkType = function (elem, type) {
             if (Object.prototype.toString.call(elem) === '[object ' + type + ']') {
                 return true;
@@ -108,7 +107,8 @@ $.fn.jp = function (parameter) {
               	cache: true,
        	 		processData : false
     		}).always(function () {
-                if ($container.tagName === 'IMG') {
+                
+                if ($container.prop("tagName") === 'IMG') {
                     useImg($container, imgProp.key);
                 } else {
                     useDiv($container, imgProp.key);    

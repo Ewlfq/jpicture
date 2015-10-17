@@ -43,7 +43,7 @@ You can use the minifyed version of jPicture, which can be found [here](https://
 
 ## Documentation
 For a beautiful version of the documentation visit the [documentation page](http://jpicture.net/documentation/).
-If you're using, or looking for the documentation of an older version of jPicture (versions >= 0.4.0) then visit the [legacy documentation page](coming soon).
+If you're using, or looking for the documentation of an older version of jPicture (versions >= 0.4.0) then visit the [legacy documentation page](http://jpicture.net/documentation-legacy/).
 
 ### The easiest way to use jPicture is, with an ID on an IMG-tag. This works as follows:
 ```javascript

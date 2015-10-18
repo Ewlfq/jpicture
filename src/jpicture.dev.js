@@ -13,6 +13,7 @@ $.fn.jp = function (parameter) {
         'background-size' : 'cover',
         'display' : 'block'
     },
+    
     settings = {},
     
     defaults = {

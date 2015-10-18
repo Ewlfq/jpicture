@@ -13,16 +13,9 @@ $.fn.jp = function (parameter) {
         'background-size' : 'cover',
         'display' : 'block'
     },
-    settings = {};
+    settings = {},
     
-    if (!parameter.hasOwnProperty('picList')) {
-        var picList = parameter;
-        parameter = {
-            picList: picList  
-        };
-    }
-
-    settings = $.extend({}, {
+    defaults = {
         enableZoom : true,
         orientationChange : true,
         callback : function noop () { },
@@ -32,7 +25,16 @@ $.fn.jp = function (parameter) {
             height : 0, // at the moment not used.
             width : 0
         }
-    }, parameter);  
+    };
+    
+    if (!parameter.hasOwnProperty('picList')) {
+        var picList = parameter;
+        parameter = {
+            picList: picList  
+        };
+    }
+
+    settings = $.extend({}, defaults, parameter);  
     
     return this.each(function () {
         var $container = $(this),

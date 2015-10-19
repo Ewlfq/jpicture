@@ -1,7 +1,7 @@
 {
   "name": "jpicture",
-  "main": "build/jpicture-0.5.0.min.js",
-  "version": "0.5.0",
+  "main": "build/jpicture-0.5.1.min.js",
+  "version": "0.5.1",
   "homepage": "http://jpicture.net",
   "authors": [
     { "name" : "oliver jessner", "email": "oliver.jessner@gmail.com", "homepage": "http://oliverj.net"},

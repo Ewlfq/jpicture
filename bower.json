@@ -13,7 +13,7 @@
   },
   "description": "A jQuery plugin to load pictures on the right view port",
   "dependencies": {
-      "jquery": "~1.10.2"
+      "jquery": "~1"
   },
   "keywords": [
     "jquery",

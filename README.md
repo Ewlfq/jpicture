@@ -11,7 +11,7 @@ displayed on. This not only takes away the trouble of handling this yourself, bu
 
 And now you might just think that it would take forever to get to this jQuery Plugin, right? But don't you worry it is just 1.73 kB small, so you can quickly download it and try it out.
 
-##Table of contents:
+## Table of contents:
  - [Usage](#usage)
  - [Documentation](#documentation)
  - [Known Issues](#known-issues)

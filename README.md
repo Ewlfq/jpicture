@@ -1,4 +1,6 @@
 # jPicture 0.5.0
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+
 As many of you might have at least once experienced, is that on smaller devices with a slow connection pictures seem to load forever.
 
 Mainly the problem there is that the high-res pictures are loaded anyway and just get scaled down for the low-res viewport.

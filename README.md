@@ -1,5 +1,5 @@
 # jPicture 0.5.0
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![GitHub license](https://img.shields.io/github/license/mashape/apistatus.svg)]() [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 As many of you might have at least once experienced, is that on smaller devices with a slow connection pictures seem to load forever.
 

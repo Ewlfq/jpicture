@@ -84,6 +84,7 @@
 
         // this functions only exist in the vanilla version
         this.getWidth = function (elem) {
+            console.log(elem);
             return parseInt(window.getComputedStyle(elem, null).width);
         };
 
@@ -97,7 +98,7 @@
             useImg = function (imgElem, url) {
             	imgElem.setAttribute('src', url);
             	imgElem.style.display = 'block';
-                cacheWandH(this.getWidth(imgElem), this.getHeight(imgElem));
+                cacheWandH(that.getWidth(imgElem), that.getHeight(imgElem));
             },
 
             // container is the non-img tag.
@@ -151,17 +152,15 @@
 
             window.addEventListener('orientationchange', function () {
                 switch (window.orientation) {
-                    case -90: case 90: that.setPicture($container, picList); break;
-                    default: that.setPicture($container, picList); break;
+                    case -90: case 90: that.setPicture(container, picList); break;
+                    default: that.setPicture(container, picList); break;
                 }
             });
         };
 
         this.clearPicture = function (container) {
-            container.css({
-                'background-image': 'none',
-                'height': 'auto'
-            });
+            container.style.backgroundImage = 'none';
+            container.style.height = 'auto';
         };
 
         this.isSameWidth = function (containerWidth) {
@@ -187,9 +186,10 @@
                     container.style.display = 'none';
                     this.cacheWandH(0, 0);
 
-            // User wants to display some html.
-            } else if ((this.hasWhiteSpace(imgObj.key) || this.hasLT(imgObj.key)) && this.settings.checkForHtml) {
-                container.innerHTML = imgObj.key;
+                // User wants to display some html.
+                } else if ((this.hasWhiteSpace(imgObj.key) || this.hasLT(imgObj.key)) && this.settings.checkForHtml) {
+                    container.innerHTML = imgObj.key;
+                    this.clearPicture(container);
                 } else {
                     this.fetchImg(container, imgObj, containerWidth);
                     container.innerHTML = '';

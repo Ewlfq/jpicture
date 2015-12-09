@@ -15,7 +15,7 @@ And now you might just think that it would take forever to get to this jQuery Pl
 
 --------
 
-tl;dr: jPicture is a kind of polyfill for the html 5.1 [picture](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture) tag, available as standalone JavaScript version or jQuery Plugin
+tl;dr: jPicture is a kind of polyfill for the html 5.1 [picture](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/picture) tag, available as standalone JavaScript version or jQuery Plugin.
 
 ##Table of contents:
  - [Install](#install)

@@ -2,35 +2,35 @@
     <head>
         <meta charset="utf-8">
         <title>Test Page with divs and callbacks</title>
-        
+
         <style>
             #first{
                 width: 775px;
             }
-            
+
             #second{
                 width: 510px;
             }
-            
+
             #third{
                 width: 375px;
             }
-            
-            #fourth{ 
+
+            #fourth{
                 width: 210px;
             }
-            
+
             #fifth{
                 width: 60px;
             }
-            
+
             .pic{}
-            
+
             div.row{
                 width: 100%;
                 float: left;
             }
-            
+
             div.container{
                 float: left;
                 margin-right: 5px;
@@ -44,52 +44,52 @@
                 <p>div width: 775 px</p>
                 <div id="first" class="pic"></div>
             </div>
-        
+
             <div class="container">
                 <p>div width: 510 px</p>
                 <div id="second" class="pic"></div>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="container">
                 <p>div width: 375 px</p>
                 <div id="third" class="pic"></div>
             </div>
-            
+
             <div class="container">
                 <p>div width: 210 px</p>
                 <div id="fourth" class="pic"></div>
             </div>
-        
+
             <div class="container">
                 <p>div width: 60 px</p>
                 <div id="fifth" class="pic"></div>
             </div>
         </div>
-        
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="../../src/jpicture.dev.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../src/jpicture.jquery.dev.js"></script>
         <script>
         var parameter = {
             callback: function (pic) {
                 alert($(pic).width());
             },
             picList: {
-                '<p>Hello World</p>' : 80, 
-                '../test_imgs/we_200.jpg' : 200, 
-                '../test_imgs/we_400.jpg' : 400, 
-                '../test_imgs/we_600.jpg' : 600, 
-                '../test_imgs/we_800.jpg' : 800, 
+                '<p>Hello World</p>' : 80,
+                '../test_imgs/we_200.jpg' : 200,
+                '../test_imgs/we_400.jpg' : 400,
+                '../test_imgs/we_600.jpg' : 600,
+                '../test_imgs/we_800.jpg' : 800,
             }
         };
-    
+
         $('#first').jp(parameter);
         $('#second').jp(parameter);
         $('#third').jp(parameter);
         $('#fourth').jp(parameter);
         $('#fifth').jp(parameter);
-        
+
         // $('.pic').jp(picList);
         </script>
     </body>

@@ -2,35 +2,35 @@
     <head>
         <meta charset="utf-8">
         <title>Test Page with imgs and class</title>
-        
+
         <style>
             #first{
                 width: 775px;
             }
-            
+
             #second{
                 width: 510px;
             }
-            
+
             #third{
                 width: 375px;
             }
-            
+
             #fourth{
                 width: 210px;
             }
-            
+
             #fifth{
                 width: 60px;
             }
-            
+
             .pic{}
-                
+
             div.row{
                 width: 100%;
                 float: left;
             }
-                
+
             div.container{
                 float: left;
                 margin-right: 5px;
@@ -44,41 +44,41 @@
                 <p>img tag width: 775 px</p>
                 <img id="first" class="pic">
             </div>
-        
-            <div  class="container"> 
+
+            <div  class="container">
                 <p>img tag width: 510 px</p>
                 <img id="second" class="pic">
             </div>
         </div>
-        
-        <div class="row">  
+
+        <div class="row">
             <div  class="container">
                 <p>img tag width: 375 px</p>
                 <img id="third" class="pic">
             </div>
-                      
+
             <div  class="container">
                 <p>img tag width: 210 px</p>
                 <img id="fourth" class="pic">
             </div>
-        
-            <div  class="container"> 
+
+            <div  class="container">
                 <p>img tag width: 60 px</p>
                 <img id="fifth" class="pic">
             </div>
         </div>
-        
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="../../src/jpicture.dev.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../src/jpicture.jquery.dev.js"></script>
         <script>
         var picList = {
-            '../test_imgs/we_80.jpg' : 80, 
-            '../test_imgs/we_200.jpg' : 200, 
-            '../test_imgs/we_400.jpg' : 400, 
-            '../test_imgs/we_600.jpg' : 600, 
-            '../test_imgs/we_800.jpg' : 800, 
+            '../test_imgs/we_80.jpg' : 80,
+            '../test_imgs/we_200.jpg' : 200,
+            '../test_imgs/we_400.jpg' : 400,
+            '../test_imgs/we_600.jpg' : 600,
+            '../test_imgs/we_800.jpg' : 800,
         };
-        
+
         /*
         $('#first').jp(picList);
         $('#second').jp(picList);

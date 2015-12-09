@@ -14,16 +14,18 @@ module.exports = function (grunt) {
     },
 
     uglify: {
-      options: {
-        banner: '/* build with grunt <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
-      },
-      build: [{
-        src: 'src/<%= pkg.name %>.dev.js',
-        dest: 'build/<%= pkg.name %>.min.js'
-      },{
+      build: {
+        options: {
+          banner: '/* build with grunt <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
+        },
+        files: [{
+          src: 'src/<%= pkg.name %>.dev.js',
+          dest: 'build/<%= pkg.name %>.min.js'
+        },{
           src: 'src/<%= pkg.name %>.jquery.dev.js',
           dest: 'build/<%= pkg.name %>.jquery.min.js'
-      }]
+        }]
+      }
     },
 
     open: {

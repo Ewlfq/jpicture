@@ -1,9 +1,9 @@
-# jPicture 0.5.0
+# jPicture 0.6.0
 As many of you might have at least once experienced, is that on smaller devices with a slow connection pictures seem to load forever.
 
 Mainly the problem there is that the high-res pictures are loaded anyway and just get scaled down for the low-res viewport.
 
-To avoid that, might sometimes (or even most of the time) be a pain in the neck, and that is exactly what this jQuery plugin was built 
+To avoid that, might sometimes (or even most of the time) be a pain in the neck, and that is exactly what this jQuery plugin was built
 for.
 
 To break it down to the essence, jPicture loads only the most fitting picture out of the picture-versions for the viewport the page is
@@ -45,10 +45,10 @@ If you're using, or looking for the documentation of an older version of jPictur
 ### The easiest way to use jPicture is, with an ID on an IMG-tag. This works as follows:
 ```javascript
 $('#my-fancy-pic').jp({
-    'test_imgs/mySuperFancyPic_80.jpg' : 80, 
-    'test_imgs/mySuperFancyPic_200.jpg' : 200, 
-    'test_imgs/mySuperFancyPic_400.jpg' : 400, 
-    'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+    'test_imgs/mySuperFancyPic_80.jpg' : 80,
+    'test_imgs/mySuperFancyPic_200.jpg' : 200,
+    'test_imgs/mySuperFancyPic_400.jpg' : 400,
+    'test_imgs/mySuperFancyPic_500.jpg' : 500,
     'test_imgs/mySuperFancyPic_600.jpg' : 600
 });
 ```
@@ -59,10 +59,10 @@ If you are using the same picture more frequently on the same page, you might wa
 
 ```javascript
 $('.some-fancy-pics').jp({
-    'test_imgs/mySuperFancyPic_80.jpg' : 80, 
-    'test_imgs/mySuperFancyPic_200.jpg' : 200, 
-    'test_imgs/mySuperFancyPic_400.jpg' : 400, 
-    'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+    'test_imgs/mySuperFancyPic_80.jpg' : 80,
+    'test_imgs/mySuperFancyPic_200.jpg' : 200,
+    'test_imgs/mySuperFancyPic_400.jpg' : 400,
+    'test_imgs/mySuperFancyPic_500.jpg' : 500,
     'test_imgs/mySuperFancyPic_600.jpg' : 600
 });
 ```
@@ -85,8 +85,8 @@ No problem, you can simply tell jPicture to not show the picture at all if the s
 ```javascript
 $('.some-fancy-pics').jp({
     'hidden' : 200,
-    'test_imgs/mySuperFancyPic_400.jpg' : 400, 
-    'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+    'test_imgs/mySuperFancyPic_400.jpg' : 400,
+    'test_imgs/mySuperFancyPic_500.jpg' : 500,
     'test_imgs/mySuperFancyPic_600.jpg' : 600
 });
 ```
@@ -98,12 +98,12 @@ If you need a callback-function, then you can also give a callback to jPicture a
 ```javascript
 $('.some-fancy-pics').jp({
     piclist : {
-        'test_imgs/mySuperFancyPic_80.jpg' : 80, 
-        'test_imgs/mySuperFancyPic_200.jpg' : 200, 
-        'test_imgs/mySuperFancyPic_400.jpg' : 400, 
-        'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+        'test_imgs/mySuperFancyPic_80.jpg' : 80,
+        'test_imgs/mySuperFancyPic_200.jpg' : 200,
+        'test_imgs/mySuperFancyPic_400.jpg' : 400,
+        'test_imgs/mySuperFancyPic_500.jpg' : 500,
         'test_imgs/mySuperFancyPic_600.jpg' : 600
-    }, 
+    },
     callback : function () {
 	    console.log("Picture was loaded.");
     }
@@ -117,12 +117,12 @@ What if you need to do something with the picture after you loaded it? Well, jus
 ```javascript
 $('.some-fancy-pics').jp(
     piclist : {
-        'test_imgs/mySuperFancyPic_80.jpg' : 80, 
-        'test_imgs/mySuperFancyPic_200.jpg' : 200, 
-        'test_imgs/mySuperFancyPic_400.jpg' : 400, 
-        'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+        'test_imgs/mySuperFancyPic_80.jpg' : 80,
+        'test_imgs/mySuperFancyPic_200.jpg' : 200,
+        'test_imgs/mySuperFancyPic_400.jpg' : 400,
+        'test_imgs/mySuperFancyPic_500.jpg' : 500,
         'test_imgs/mySuperFancyPic_600.jpg' : 600
-    }, 
+    },
     callback : function (pic) {
         var pWidth = $(pic).width();
         console.log("The width of the picture is " + pWidth + "pixels.");
@@ -136,10 +136,10 @@ jPicture comes with an automatic Zoom and OrientationChange Event. If you want d
 ```javascript
 $('.some-fancy-pics').jp({
     piclist : {
-        'test_imgs/mySuperFancyPic_80.jpg' : 80, 
-        'test_imgs/mySuperFancyPic_200.jpg' : 200, 
-        'test_imgs/mySuperFancyPic_400.jpg' : 400, 
-        'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+        'test_imgs/mySuperFancyPic_80.jpg' : 80,
+        'test_imgs/mySuperFancyPic_200.jpg' : 200,
+        'test_imgs/mySuperFancyPic_400.jpg' : 400,
+        'test_imgs/mySuperFancyPic_500.jpg' : 500,
         'test_imgs/mySuperFancyPic_600.jpg' : 600
     },
     enableZoom : false,
@@ -153,12 +153,12 @@ You can also chain every jQuery method after the end of the jPicture function.
 ```javascript
 $('.some-fancy-pics').jp({
     piclist : {
-        'test_imgs/mySuperFancyPic_80.jpg' : 80, 
-        'test_imgs/mySuperFancyPic_200.jpg' : 200, 
-        'test_imgs/mySuperFancyPic_400.jpg' : 400, 
-        'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+        'test_imgs/mySuperFancyPic_80.jpg' : 80,
+        'test_imgs/mySuperFancyPic_200.jpg' : 200,
+        'test_imgs/mySuperFancyPic_400.jpg' : 400,
+        'test_imgs/mySuperFancyPic_500.jpg' : 500,
         'test_imgs/mySuperFancyPic_600.jpg' : 600
-    }, 
+    },
     callback : function (pic) {
         var pWidth = $(pic).width();
         console.log("The picture has a width of " + pWidth + " pixels.");
@@ -173,25 +173,25 @@ $('.some-fancy-pics').jp({
 ### Inject HTML instead of pictures
 Sometimes it is a better idea or solution to display text instead of pictures.
 In those cases jPicture can display a text instead of a picture for chosen sizes, but beware that jPicture only recognizes HTML tags or text with at least one whitespace as text elements, anything else will be handled like a picture element.
-		
+
 ```javascript
 $('#some-fancy-pic').jp({
-    '<span>Too Small for a pic</span>;' : 80, 
-    'test_imgs/mySuperFancyPic_200.jpg' : 200, 
-    'test_imgs/mySuperFancyPic_400.jpg' : 400, 
-    'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+    '<span>Too Small for a pic</span>;' : 80,
+    'test_imgs/mySuperFancyPic_200.jpg' : 200,
+    'test_imgs/mySuperFancyPic_400.jpg' : 400,
+    'test_imgs/mySuperFancyPic_500.jpg' : 500,
     'test_imgs/mySuperFancyPic_600.jpg' : 600
 });
 ```
 
 Hence you are not forced to use pictures at all.
-		
+
 ```javascript
 $('#headline-section').jp({
-    '<h5>About us</h5>' : 60, 
-    '<h4>About us</h4>' : 100, 
-    '<h3>About us</h3>' : 140, 
-    '<h2>About us</h2>' : 180, 
+    '<h5>About us</h5>' : 60,
+    '<h4>About us</h4>' : 100,
+    '<h3>About us</h3>' : 140,
+    '<h2>About us</h2>' : 180,
     '<h1>About us</h1>' : 220
 });
 ```
@@ -202,12 +202,12 @@ Just in case, you didnt know. Instead of Literals we could use variables.
 ```javascript
 var param = {
     piclist: {
-        'test_imgs/mySuperFancyPic_80.jpg' : 80, 
-        'test_imgs/mySuperFancyPic_200.jpg' : 200, 
-        'test_imgs/mySuperFancyPic_400.jpg' : 400, 
-        'test_imgs/mySuperFancyPic_500.jpg' : 500, 
+        'test_imgs/mySuperFancyPic_80.jpg' : 80,
+        'test_imgs/mySuperFancyPic_200.jpg' : 200,
+        'test_imgs/mySuperFancyPic_400.jpg' : 400,
+        'test_imgs/mySuperFancyPic_500.jpg' : 500,
         'test_imgs/mySuperFancyPic_600.jpg' : 600
-    }, 
+    },
     callback: function (pic) {
 	    var pWidth = $(pic).width();
 	    console.log("The picture has a width of " + pWidth + " pixels.");
@@ -243,7 +243,7 @@ The only way we know, to not have that issue is to use other elements than IMG f
  - less memory gets allocated too
  - removed the most hated js keyword in the world "delete"
 
-## How to build your own version 
+## How to build your own version
 If you would like to build your own version of jPicture, the only thing you need to do is to follow the steps below.
 
 ```html
@@ -254,11 +254,11 @@ $ grunt
 
 Have fun building your own version!
 
-### Authors 
+### Authors
 
-Zoran Milanovic  [@HayterMiles](https://twitter.com/HayterMiles) 
+Zoran Milanovic  [@HayterMiles](https://twitter.com/HayterMiles)
 
-Oliver Jessner [@oliverj_net](https://twitter.com/oliverj_net), [Website](http://oliverj.net) 
+Oliver Jessner [@oliverj_net](https://twitter.com/oliverj_net), [Website](http://oliverj.net)
 
 Send us an email at: help@jpicture.net
 

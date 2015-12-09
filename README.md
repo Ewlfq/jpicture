@@ -14,15 +14,16 @@ displayed on. This not only takes away the trouble of handling this yourself, bu
 And now you might just think that it would take forever to get to this jQuery Plugin, right? But don't you worry it is just 1.73 kB small, so you can quickly download it and try it out.
 
 ##Table of contents:
- - [Usage](#usage)
+ - [Install](#usage)
  - [Documentation](#documentation)
+ - [Usage jQuery plugin](#usage-jquery-plugin)
+ - [Usage Vanilla Javascript](#usage-vanilla-javascript)
  - [Known Issues](#known-issues)
  - [What is new in version 0.6.0+](#what-is-new-in-version-050)
  - [How to build your own version](#how-to-build-your-own-version)
  - [Authors](#authors)
 
-## Usage
-
+## Install
 ### Bower
 ```html
 bower install jpicture
@@ -50,6 +51,7 @@ You can use the minifyed version of jPicture.
 For a beautiful version of the documentation visit the [documentation page](http://jpicture.net/documentation/).
 If you're using, or looking for the documentation of an older version of jPicture (versions >= 0.4.0) then visit the [legacy documentation page](http://jpicture.net/documentation-legacy/).
 
+## Usage jQuery plugin
 ### The easiest way to use jPicture is, with an ID on an IMG-tag. This works as follows:
 ```javascript
 $('#my-fancy-pic').jp({
@@ -224,6 +226,8 @@ var param = {
 
 $('.some-fancy-pics').jp(param);
 ```
+## Usage Vanilla Javascript
+TODO
 
 ## Known Issues
 

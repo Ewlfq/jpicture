@@ -26,19 +26,11 @@ module.exports = function (grunt) {
           dest: 'build/<%= pkg.name %>.jquery.min.js'
         }]
       }
-    },
-
-    open: {
-      dev: {
-        path: 'test/test_pages/boostrap_div.html',
-        app: 'Google Chrome'
-      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-open');
 
-  grunt.registerTask('default', ['jshint', 'uglify', 'open']);
+  grunt.registerTask('default', ['jshint', 'uglify']);
 };

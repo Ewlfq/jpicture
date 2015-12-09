@@ -68,12 +68,11 @@
             </div>
         </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="../../src/jpicture.jquery.dev.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../src/jpicture.dev.js"></script>
         <script>
-        var parameter = {
+        var param = {
             callback: function (pic) {
-                alert($(pic).width());
+                console.log(pic.getAttribute('id'));
             },
             picList: {
                 '<p>Hello World</p>' : 80,
@@ -84,11 +83,13 @@
             }
         };
 
-        $('#first').jp(parameter);
-        $('#second').jp(parameter);
-        $('#third').jp(parameter);
-        $('#fourth').jp(parameter);
-        $('#fifth').jp(parameter);
+        var jp = new jPicture();
+        jp.setResponsive('first', param);
+        jp.setResponsive('second', param);
+        jp.setResponsive('third', param);
+        jp.setResponsive('fourth', param);
+
+        jp.setResponsive('fifth', param);
         </script>
     </body>
 </html>

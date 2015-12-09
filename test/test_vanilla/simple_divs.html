@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Test Page with divs and ids</title>
+        <title>Test Page with divs</title>
 
         <style>
             #first{
@@ -38,7 +38,7 @@
         </style>
     </head>
     <body>
-        <h1>Test Page with divs and ids</h1>
+        <h1>Test Page with divs</h1>
         <div class="row">
             <div class="container">
                 <p>div width: 775 px</p>
@@ -69,32 +69,25 @@
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script type="text/javascript" charset="utf-8" src="../../src/jpicture.jquery.dev.vanilla.js"></script>
+        <script type="text/javascript" charset="utf-8" src="../../src/jpicture.dev.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script>
-        var picList = {
-            '../test_imgs/we_80.jpg' : 80,
+        var param = {
+            '<span>not enough space</span>' : 80,
             '../test_imgs/we_200.jpg' : 200,
             '../test_imgs/we_400.jpg' : 400,
             '../test_imgs/we_600.jpg' : 600,
             '../test_imgs/we_800.jpg' : 800,
+            '../test_imgs/we_1280.jpg' : 1280
         };
 
-        var jPicture = new jPicture();
-        jPicture.jp('first', picList);
-        jPicture.jp('second', picList);
-        jPicture.jp('third', picList);
-        jPicture.jp('fourth', picList);
-        jPicture.jp('fifth', picList);
+        var jp = new jPicture();
+        jp.setResponsive('first', param);
+        jp.setResponsive('second', param);
+        jp.setResponsive('third', param);
+        jp.setResponsive('fourth', param);
 
-        /*
-        $('#first').jp(picList);
-        $('#second').jp(picList);
-        $('#third').jp(picList);
-        $('#fourth').jp(picList);
-        $('#fifth').jp(picList);
-
-        // $('.pic').jp(picList);
-        */
+        jp.setResponsive('fifth', param);
         </script>
     </body>
 </html>

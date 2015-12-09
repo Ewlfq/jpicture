@@ -79,11 +79,66 @@
         // this calucates the growing or shrink height of the element.
         // otherwise it would take height of the picture.
         this.calcResizingRatio = function (picWidth, containerWidth, height) {
-            return height * (1 + ((containerWidth - picWidth) / picWidth)); 
+            return height * (1 + ((containerWidth - picWidth) / picWidth));
         };
 
-        this.fetchImg =  function ($container, imgProp, containerWidth) {
+        // this functions only exist in the vanilla version
+        this.getWidth = function (elem) {
+            return parseInt(window.getComputedStyle(elem, null).width);
+        };
 
+        this.getHeight = function (elem) {
+            return parseInt(window.getComputedStyle(elem, null).height);
+        };
+
+        this.fetchImg =  function (container, imgProp, containerWidth) {
+            var useImg = function (imgElem, url) {
+            	imgElem.setAttribute('src', url);
+            	imgElem.style.display = 'block';
+                cacheWandH(this.getWidth(imgElem), this.getHeight(imgElem));
+            },
+
+            // container is the non-img tag.
+            useDiv = function (container, url) {
+                var loadImg = new Image(); // We need this image obj to get the height.
+
+                // it is also very important to check dynamic heights, like navi pictures,
+                // those get a predefined height of their inside elements example: oliverj.net.
+                loadImg.onload = function() {
+                    var w = container.width();
+                    container.style.backgroundImage = 'url(' + url + ')';
+                    container.style.backgroundRepeat = 'no-repeat';
+                    container.style.backgroundSize = 'cover';
+                    container.style.display = 'block';
+                    container.style.height = calcResizingRatio(loadImg.width, w, loadImg.height);
+                    console.log('load');
+                    cacheWandH(w, container.style.height);
+                };
+                loadImg.src = url;
+            },
+
+            httpRequest = new XMLHttpRequest();
+
+            httpRequest.onreadystatechange = function (data) {
+                if (httpRequest.status >= 200 && httpRequest.status < 400) {
+                    if (container.getAttribute("tagName") === 'IMG') {
+                        useImg(container, imgProp.key);
+                    } else {
+                        useDiv(container, imgProp.key);
+                    }
+
+                    // if there is no callback passed, it is just a noop.
+                    settings.callback(container);
+                } else {
+
+                }
+            };
+
+            httpRequest.onerror = function() {
+                console.log('Error');
+            };
+            httpRequest.open('GET', window.location.href, true);
+            httpRequest.send();
         };
 
         this.onZoom = function (container, picList) {
@@ -121,7 +176,7 @@
         };
 
         this.setPicture = function (container, picList) {
-            var containerWidth = parseInt(window.getComputedStyle(container, null).width),
+            var containerWidth = this.getWidth(container),
                 imgObj = this.findMatchingWidth(picList, containerWidth);
 
             // only refetches the img if the width shrinks or grows.

@@ -36,14 +36,14 @@ npm install jpicture
 ### The oldschool way
 #### Vanilla
 ```html
-<script src="jpicture.min.js"></script>
+<script src="dist/jpicture.min.js"></script>
 ```
 
 #### jQuery
 Reference the JavaScript file manually directly after [jQuery](http://jquery.com):
-You can use the minifyed version of jPicture, which can be found [here](https://github.com/oliver-j/jpicture/blob/dev/build/jpicture-0.5.0.min.js)
+You can use the minifyed version of jPicture.
 ```html
-<script src="jpicture.jquery.min.js"></script>
+<script src="dist/jpicture.jquery.min.js"></script>
 ```
 
 ## Documentation

@@ -14,7 +14,7 @@ displayed on. This not only takes away the trouble of handling this yourself, bu
 And now you might just think that it would take forever to get to this jQuery Plugin, right? But don't you worry it is just 1.73 kB small, so you can quickly download it and try it out.
 
 ##Table of contents:
- - [Install](#usage)
+ - [Install](#install)
  - [Documentation](#documentation)
  - [Usage jQuery plugin](#usage-jquery-plugin)
  - [Usage Vanilla Javascript](#usage-vanilla-javascript)
@@ -275,6 +275,7 @@ The only way we know, to not have that issue is to use other elements than IMG f
 
 ### In version 0.6.0+
  - javascript only support
+ - killed the jQuery dependency
 
 ### In version 0.5.0+
 

@@ -84,7 +84,6 @@
 
         // this functions only exist in the vanilla version
         this.getWidth = function (elem) {
-            console.log(elem);
             return parseInt(window.getComputedStyle(elem, null).width);
         };
 
@@ -197,6 +196,17 @@
             }
         };
 
+        this.initParameters = function (container, picList) {
+            if (this.settings.enableZoom) {
+                this.onZoom(container, picList);
+            }
+
+            // optional parameter for orientationChange, default on.
+            if (this.settings.orientationChange) {
+                this.onOrientationChange(container, picList);
+            }
+        };
+
         this.setResponsive = function (id, parameter) {
             var container = document.getElementById(id);
 
@@ -209,19 +219,8 @@
 
             this.settings = extend(defaults, parameter);
 
-            this.initParameters(id, this.settings.picList);
+            this.initParameters(container, this.settings.picList);
             this.setPicture(container, this.settings.picList);
-        };
-
-        this.initParameters = function (container, picList) {
-            if (this.settings.enableZoom) {
-                this.onZoom(container, picList);
-            }
-
-            // optional parameter for orientationChange, default on.
-            if (this.settings.orientationChange) {
-                this.onOrientationChange(container, picList);
-            }
         };
     };
 

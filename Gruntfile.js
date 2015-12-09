@@ -1,29 +1,31 @@
-// First of all the source files runs throug jshint
-// After that it gets minified 
-// and last but not least it gets open via the browser
 module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
     jshint: {
-      files: ['src/<%= pkg.name %>.dev.js'],
+      files: [
+          'src/<%= pkg.name %>.jquery.dev.js',
+          'src/<%= pkg.name %>.dev.js'],
       options: {
         globals: {
           jQuery: true
         }
       }
     },
-      
+
     uglify: {
       options: {
         banner: '/* build with grunt <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
-      build: {
+      build: [{
         src: 'src/<%= pkg.name %>.dev.js',
-        dest: 'build/<%= pkg.name %>-<%= pkg.version %>.min.js'
-      }
+        dest: 'build/<%= pkg.name %>.min.js'
+      },{
+          src: 'src/<%= pkg.name %>.jquery.dev.js',
+          dest: 'build/<%= pkg.name %>.jquery.min.js'
+      }]
     },
-    
+
     open: {
       dev: {
         path: 'test/test_pages/boostrap_div.html',

@@ -1,10 +1,6 @@
 ;(function ($, win) { 'use strict';
-// jPicture version 0.5.0
+// jPicture version 0.6.0
 // Authors: Oliver Jessner, Zoran Milanovic
-// @param picList : object, key is url, val is width
-// @param callback : function
-// @param enableZoom : boolean
-// @param orientationChange : boolean
 $.fn.jp = function (parameter) {
 
     // this obj stores all css properties, which are added to the fetched html elem e.g. $('#special.div').

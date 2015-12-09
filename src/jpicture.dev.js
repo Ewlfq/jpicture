@@ -9,14 +9,14 @@
     },
 
     defaults = {
-        enableZoom : true,
-        orientationChange : true,
-        callback : function noop () { },
+        enableZoom: true,
+        orientationChange: true,
+        callback: function noop () { },
         animationSpeed: 'fast', // at the moment not used.
         checkForHtml: true,
-        lastPicture : {
-            height : 0, // at the moment not used.
-            width : 0
+        lastPicture: {
+            height: 0, // at the moment not used.
+            width: 0
         }
     },
 
@@ -72,8 +72,8 @@
         };
 
         this.cacheWandH = function (w, h) {
-            settings.lastPicture.width = w;
-            settings.lastPicture.height = h;
+            this.settings.lastPicture.width = w;
+            this.settings.lastPicture.height = h;
         };
 
         // this calucates the growing or shrink height of the element.
@@ -92,7 +92,9 @@
         };
 
         this.fetchImg =  function (container, imgProp, containerWidth) {
-            var useImg = function (imgElem, url) {
+            var that = this,
+
+            useImg = function (imgElem, url) {
             	imgElem.setAttribute('src', url);
             	imgElem.style.display = 'block';
                 cacheWandH(this.getWidth(imgElem), this.getHeight(imgElem));
@@ -100,19 +102,21 @@
 
             // container is the non-img tag.
             useDiv = function (container, url) {
+                console.log('usediv');
                 var loadImg = new Image(); // We need this image obj to get the height.
 
                 // it is also very important to check dynamic heights, like navi pictures,
                 // those get a predefined height of their inside elements example: oliverj.net.
                 loadImg.onload = function() {
-                    var w = container.width();
+                    var w = that.getWidth(container);
+
                     container.style.backgroundImage = 'url(' + url + ')';
                     container.style.backgroundRepeat = 'no-repeat';
                     container.style.backgroundSize = 'cover';
                     container.style.display = 'block';
-                    container.style.height = calcResizingRatio(loadImg.width, w, loadImg.height);
+                    container.style.height = that.calcResizingRatio(loadImg.width, w, loadImg.height);
                     console.log('load');
-                    cacheWandH(w, container.style.height);
+                    that.cacheWandH(w, container.style.height);
                 };
                 loadImg.src = url;
             },
@@ -120,18 +124,14 @@
             httpRequest = new XMLHttpRequest();
 
             httpRequest.onreadystatechange = function (data) {
-                if (httpRequest.status >= 200 && httpRequest.status < 400) {
-                    if (container.getAttribute("tagName") === 'IMG') {
-                        useImg(container, imgProp.key);
-                    } else {
-                        useDiv(container, imgProp.key);
-                    }
-
-                    // if there is no callback passed, it is just a noop.
-                    settings.callback(container);
+                if (container.getAttribute("tagName") === 'IMG') {
+                    useImg(container, imgProp.key);
                 } else {
-
+                    useDiv(container, imgProp.key);
                 }
+
+                // if there is no callback passed, it is just a noop.
+                that.settings.callback(container);
             };
 
             httpRequest.onerror = function() {

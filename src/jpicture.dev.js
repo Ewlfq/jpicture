@@ -133,24 +133,26 @@
                 that.settings.callback(container);
             };
 
-            httpRequest.onerror = function () {
-                console.log('Error');
-            };
+            httpRequest.onerror = function () { };
             httpRequest.open('GET', window.location.href, true);
             httpRequest.send();
         };
 
         this.onZoom = function (container, picList) {
+            var that = this;
+
             window.addEventListener('resize', function () {
-                this.setPicture(container, picList);
+                that.setPicture(container, picList);
             });
         };
 
         this.onOrientationChange = function (container, picList) {
+            var that = this;
+
             window.addEventListener('orientationchange', function () {
                 switch (window.orientation) {
-                    case -90: case 90: this.setPicture($container, picList); break;
-                    default: this.setPicture($container, picList); break;
+                    case -90: case 90: that.setPicture($container, picList); break;
+                    default: that.setPicture($container, picList); break;
                 }
             });
         };

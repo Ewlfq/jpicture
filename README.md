@@ -23,7 +23,7 @@ tl;dr: jPicture is a kind of polyfill for the html 5.1 [picture](https://develop
  - [Usage jQuery plugin](#usage-jquery-plugin)
  - [Usage Vanilla Javascript](#usage-vanilla-javascript)
  - [Known Issues](#known-issues)
- - [What is new](#what-is-new)
+ - [What is new in](#what-is-new-in)
  - [How to build your own version](#how-to-build-your-own-version)
  - [Authors](#authors)
 
@@ -275,13 +275,13 @@ $('#banner').outerWidth();
 The only way we know, to not have that issue is to use other elements than IMG for example a DIV-element should get the job done as expected. As we have already mentioned this is only needed for Firefox.
 
 
-## What is new
+## What is new in
 
-### In version 0.6.0+
- - javascript only support
+### Version 0.6.0
+ - JavaScript standalone support
  - killed the jQuery dependency
 
-### In version 0.5.0+
+### Version 0.5.0
 
 - support for CSS properties was dropped
 - now we follow the unofficial jQuery standard and have only one parameter left

@@ -1,9 +1,5 @@
-// jPicture version 0.5.0
+// jPicture version 0.6.0
 // Authors: Oliver Jessner, Zoran Milanovic
-// @param picList : object, key is url, val is width
-// @param callback : function
-// @param enableZoom : boolean
-// @param orientationChange : boolean
 (function (window, document) { 'use strict';
     // this obj stores all css properties, which are added to the fetched html elem e.g. $('#special.div').
     var containerCSS = {
@@ -83,7 +79,7 @@
         // this calucates the growing or shrink height of the element.
         // otherwise it would take height of the picture.
         this.calcResizingRatio = function (picWidth, containerWidth, height) {
-
+            return height * (1 + ((containerWidth - picWidth) / picWidth)); 
         };
 
         this.fetchImg =  function ($container, imgProp, containerWidth) {
@@ -91,11 +87,18 @@
         };
 
         this.onZoom = function (container, picList) {
-
+            window.addEventListener('resize', function () {
+                this.setPicture(container, picList);
+            });
         };
 
         this.onOrientationChange = function (container, picList) {
-
+            window.addEventListener('orientationchange', function () {
+                switch (window.orientation) {
+                    case -90: case 90: this.setPicture($container, picList); break;
+                    default: this.setPicture($container, picList); break;
+                }
+            });
         };
 
         this.clearPicture = function (container) {
@@ -118,9 +121,9 @@
         };
 
         this.setPicture = function (container, picList) {
-            var containerWidth = parseInt(getComputedStyle(container).width),
+            var containerWidth = parseInt(window.getComputedStyle(container, null).width),
                 imgObj = this.findMatchingWidth(picList, containerWidth);
-                console.log(containerWidth);
+
             // only refetches the img if the width shrinks or grows.
             if (!this.isSameWidth(containerWidth)) {
                 // User wants to hide anything.
@@ -128,16 +131,17 @@
                     container.style.display = 'none';
                     this.cacheWandH(0, 0);
 
-                 // User wants to display some html.
-                } else if ((this.hasWhiteSpace(imgObj.key) || this.hasLT(imgObj.key)) && settings.checkForHtml) {
-
+            // User wants to display some html.
+            } else if ((this.hasWhiteSpace(imgObj.key) || this.hasLT(imgObj.key)) && this.settings.checkForHtml) {
+                container.innerHTML = imgObj.key;
                 } else {
-
-               }
+                    this.fetchImg(container, imgObj, containerWidth);
+                    container.innerHTML = '';
+                }
             }
         };
 
-        this.jp = function (id, parameter) {
+        this.setResponsive = function (id, parameter) {
             var container = document.getElementById(id);
 
             if (!parameter.hasOwnProperty('picList')) {
@@ -154,7 +158,6 @@
         };
 
         this.initParameters = function (container, picList) {
-            console.log(picList);
             if (this.settings.enableZoom) {
                 this.onZoom(container, picList);
             }

@@ -1,4 +1,6 @@
 # jPicture 0.6.0
+[![tag](https://img.shields.io/badge/tag-0.6.0-blue.svg)]() [![build](https://img.shields.io/badge/build-grunt-blue.svg)]() [![GitHub license](https://img.shields.io/badge/license-mit-blue.svg)]()
+
 As many of you might have at least once experienced, is that on smaller devices with a slow connection pictures seem to load forever.
 
 Mainly the problem there is that the high-res pictures are loaded anyway and just get scaled down for the low-res viewport.

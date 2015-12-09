@@ -19,7 +19,7 @@ And now you might just think that it would take forever to get to this jQuery Pl
  - [Usage jQuery plugin](#usage-jquery-plugin)
  - [Usage Vanilla Javascript](#usage-vanilla-javascript)
  - [Known Issues](#known-issues)
- - [What is new in version 0.6.0+](#what-is-new-in-version-050)
+ - [What is new](#what-is-new)
  - [How to build your own version](#how-to-build-your-own-version)
  - [Authors](#authors)
 
@@ -227,7 +227,30 @@ var param = {
 $('.some-fancy-pics').jp(param);
 ```
 ## Usage Vanilla Javascript
-TODO
+The vanilla version of jPicture has the same options like
+the jQuery plugin. Different here is that you can only
+use ids instead of ids and classes.
+
+```javascript
+var param = {
+    enableZoom: true,
+    orientationChange: true,
+    callback: function (pic) {
+	    console.log("The picture " + pic);
+    }
+    picList : {
+        '<span>not enough space</span>' : 80,
+        '../test_imgs/we_200.jpg' : 200,
+        '../test_imgs/we_400.jpg' : 400,
+        '../test_imgs/we_600.jpg' : 600,
+        '../test_imgs/we_800.jpg' : 800,
+        '../test_imgs/we_1280.jpg' : 1280
+    }
+};
+
+var jp = new jPicture();
+jp.setResponsive('col-sm-1-1', param);
+```
 
 ## Known Issues
 
@@ -248,8 +271,18 @@ $('#banner').outerWidth();
 The only way we know, to not have that issue is to use other elements than IMG for example a DIV-element should get the job done as expected. As we have already mentioned this is only needed for Firefox.
 
 
-## What is new in version 0.6.0+
+## What is new
+
+### In version 0.6.0+
  - javascript only support
+
+### In version 0.5.0+
+
+- support for CSS properties was dropped
+- now we follow the unofficial jQuery standard and have only one parameter left
+- code base was reduced
+- less memory gets allocated too
+- removed the most hated js keyword in the world "delete"
 
 ## How to build your own version
 If you would like to build your own version of jPicture, the only thing you need to do is to follow the steps below.

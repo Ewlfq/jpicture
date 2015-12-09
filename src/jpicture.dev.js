@@ -102,7 +102,6 @@
 
             // container is the non-img tag.
             useDiv = function (container, url) {
-                console.log('usediv');
                 var loadImg = new Image(); // We need this image obj to get the height.
 
                 // it is also very important to check dynamic heights, like navi pictures,
@@ -115,7 +114,7 @@
                     container.style.backgroundSize = 'cover';
                     container.style.display = 'block';
                     container.style.height = that.calcResizingRatio(loadImg.width, w, loadImg.height);
-                    console.log('load');
+
                     that.cacheWandH(w, container.style.height);
                 };
                 loadImg.src = url;
@@ -134,7 +133,7 @@
                 that.settings.callback(container);
             };
 
-            httpRequest.onerror = function() {
+            httpRequest.onerror = function () {
                 console.log('Error');
             };
             httpRequest.open('GET', window.location.href, true);

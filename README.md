@@ -17,7 +17,7 @@ And now you might just think that it would take forever to get to this jQuery Pl
  - [Usage](#usage)
  - [Documentation](#documentation)
  - [Known Issues](#known-issues)
- - [What is new in version 0.5.0+](#what-is-new-in-version-050)
+ - [What is new in version 0.6.0+](#what-is-new-in-version-050)
  - [How to build your own version](#how-to-build-your-own-version)
  - [Authors](#authors)
 
@@ -238,12 +238,8 @@ $('#banner').outerWidth();
 The only way we know, to not have that issue is to use other elements than IMG for example a DIV-element should get the job done as expected. As we have already mentioned this is only needed for Firefox.
 
 
-## What is new in version 0.5.0+
- - support for CSS properties was dropped
- - now we follow the unofficial jQuery standard and have only one parameter left
- - code base was reduced
- - less memory gets allocated too
- - removed the most hated js keyword in the world "delete"
+## What is new in version 0.6.0+
+ - javascript only support
 
 ## How to build your own version
 If you would like to build your own version of jPicture, the only thing you need to do is to follow the steps below.

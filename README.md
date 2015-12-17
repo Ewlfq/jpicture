@@ -1,5 +1,8 @@
 # jPicture 0.6.0
-[![tag](https://img.shields.io/badge/tag-0.6.0-blue.svg)]() [![build](https://img.shields.io/badge/build-grunt-blue.svg)]() [![GitHub license](https://img.shields.io/badge/license-mit-blue.svg)]()
+[![bower](https://img.shields.io/bower/v/jpicture.svg)](http://bower.io)
+[![npm](https://img.shields.io/npm/v/jpicture.svg)](https://www.npmjs.com/package/jcolumn)
+[![Build tool](https://img.shields.io/badge/build%20tool-grunt-red.svg)](http://gruntjs.com)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 As many of you might have at least once experienced, is that on smaller devices with a slow connection pictures seem to load forever.
 
@@ -288,6 +291,13 @@ The only way we know, to not have that issue is to use other elements than IMG f
 - code base was reduced
 - less memory gets allocated too
 - removed the most hated js keyword in the world "delete"
+
+## Browser compatibility (JavaScript Version)
+- Chrome 1+
+- FireFox 5+
+- Safari 4+
+- Opera 10+
+- IE 10+
 
 ## How to build your own version
 If you would like to build your own version of jPicture, the only thing you need to do is to follow the steps below.

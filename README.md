@@ -1,4 +1,4 @@
-# jPicture 0.6.0
+# jPicture 0.6.1
 [![bower](https://img.shields.io/bower/v/jpicture.svg)](http://bower.io)
 [![npm](https://img.shields.io/npm/v/jpicture.svg)](https://www.npmjs.com/package/jcolumn)
 [![Build tool](https://img.shields.io/badge/build%20tool-grunt-red.svg)](http://gruntjs.com)

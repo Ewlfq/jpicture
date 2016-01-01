@@ -1,6 +1,6 @@
 # jPicture 0.6.1
 [![bower](https://img.shields.io/bower/v/jpicture.svg)](http://bower.io)
-[![npm](https://img.shields.io/npm/v/jpicture.svg)](https://www.npmjs.com/package/jcolumn)
+[![npm](https://img.shields.io/npm/v/jpicture.svg)](https://www.npmjs.com/package/jpicture)
 [![Build tool](https://img.shields.io/badge/build%20tool-grunt-red.svg)](http://gruntjs.com)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
@@ -318,4 +318,4 @@ Oliver Jessner [@oliverj_net](https://twitter.com/oliverj_net), [Website](http:/
 
 Send us an email at: help@jpicture.net
 
-Copyright © 2015
+Copyright © 2015 - 2016

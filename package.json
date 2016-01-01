@@ -16,7 +16,7 @@
     "jquery-plugin",
     "ecosystem:jquery"
   ],
-  "version": "0.6.1",
+  "version": "0.6.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/oliver-j/jpicture"
@@ -30,14 +30,17 @@
   "demo": "http://jpicture.net/demo/",
   "docs": "http://jpicture.net/documentation/",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oliver-j/jpicture/issues"
+  },
   "dependencies": {
-    "jquery": "~1",
+    "jquery": "~1"
+  },
+  "devDependencies": {
+    "grunt-open": "^0.2.3",
     "grunt": "~0.4.5",
     "grunt-contrib-uglify": "~0.9.1",
     "grunt-contrib-jshint": "~0.11.2",
     "time-grunt": "~1.2.2"
-  },
-  "devDependencies": {
-    "grunt-open": "^0.2.3"
   }
 }
